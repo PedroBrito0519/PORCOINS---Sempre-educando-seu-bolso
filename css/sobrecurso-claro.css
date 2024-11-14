@@ -1,0 +1,407 @@
+
+.home,
+.home-popular,
+.home-header,
+.home-popular h3{
+    width: fit-content;
+}
+
+
+.topo_cursos_h1{
+    background-color: inherit;
+    color: #924ef2;
+    font-size: 50px;
+}
+
+.home{
+    display: flex;
+    flex-direction: row;
+    color: #924ef2;
+}
+
+.home-popular{
+    padding: 10vh 4vw 5vh 1vw;
+    width: 63%;
+}
+
+.home-popular h3{
+    text-transform: capitalize;
+    margin: auto;
+    font-size: 30px;
+    color: #924ef2;
+}
+
+.home-header{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+.home-header .topo_h1{
+    font-size: 5.5rem;
+    text-transform: capitalize;
+    font-weight: 70;
+    font-size: 50px;
+    color: #924ef2;
+}
+
+.slider{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 1000px;
+  position: relative;
+}
+
+
+
+li img{
+  border-radius: 5% / 3%;
+  border: 1px solid #924ef2;
+  position: relative;
+}
+
+.slider-prev,
+.slider-next{
+  height: fit-content;
+  background-color: inherit;
+  font-size: 30px;
+  margin: auto;
+  cursor: pointer;
+  font-weight: 600;
+  position: absolute;
+  top: 160px;
+}
+
+.slider-prev{
+  left: 40px;
+}
+
+.slider-next{
+  left: 670px;
+}
+
+.slider-prev::before{
+  content: '<';
+  margin-right: 15px;
+}
+
+.slider-next::before{
+  content: '>';
+  margin-left: 15px;
+}
+
+.description{
+  position: relative;
+  top: 350px;
+  color: #924ef2;
+}
+
+.description h3{
+  display: none;
+color: #924ef2;
+}
+
+.further-description{
+  position: relative;
+  top: 350px;
+  left: 170px;
+  color: #924ef2;
+}
+
+.further-description h2{
+  text-transform: capitalize;
+  display: none;
+  font-size: 1.2rem;
+  font-weight: 400;
+  width: 55%;
+  text-align: center;
+  text-transform: none;
+  color: #924ef2;
+}
+
+h2.active{
+  display: block;
+}
+
+h3.active{
+  display: block !important;
+}
+
+.item{
+  flex: 1 0 20%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.6s ease-in-out;
+}
+
+.small1, .small2 {
+  height: 200px;
+  position: absolute;
+  z-index: -1;
+  top: 70px;
+}
+
+.big1, .big2 {
+  height: 250px;
+  position: absolute;
+  z-index: 0;
+  top: 40px;
+}
+
+.small1{
+  left: 90px;
+}
+
+.big1{
+  left: 170px;
+}
+
+.focus {
+  position: absolute;
+  z-index: 1;
+  height: 300px;
+  left: 270px;
+  top: 10px;
+}
+
+.big2{
+  left: 400px;
+}
+
+.small2{
+  left: 520px;
+}
+
+
+
+.container_yt {
+  position: relative;
+  width: 320px;
+  margin: 100px auto 0 auto; 
+  perspective: 1000px;
+  z-index: 1;
+  align-items: center;
+  color: #924ef2;
+}
+.yt_container {
+
+color: #f3f2f5;
+}
+.image a, h1{
+text-decoration: none;
+text-align: center;
+align-items: center;
+color: white;
+margin: 12px;
+}
+.carousel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: rotate360 60s infinite forwards linear;
+  z-index: 1;
+  will-change: transform;
+ color: #924ef2;
+ align-items: center;
+}
+
+.image {
+  position: absolute;
+  width: 300px;
+  height: 187px;
+  top: 20px;
+
+  background-size: cover;
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
+  display: flex;
+  z-index: 1;
+  align-items: center;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+
+.image:nth-child(1) {
+  background-image: url(https://blog.stoodi.com.br/wp-content/uploads/2020/01/cofrinho.jpg);
+  transform: rotateY( 0deg) translateZ(430px);
+}
+
+.image:nth-child(2) {
+  background-image: url(https://cdn.borainvestir.b3.com.br/2023/07/05153917/o-que-e-renda-fixa-digital-como-investir.jpeg);
+  transform: rotateY( 40deg) translateZ(430px);
+}
+
+.image:nth-child(3) {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHNzqIjd3xl58ZfjyHkDG27clu2KpvsjHWbw&s);
+  transform: rotateY( 80deg) translateZ(430px);
+}
+
+.image:nth-child(4) {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkv90Jhb1C6_53D6ipMbUrDwGerFhM0MD_nw&s);
+  transform: rotateY(120deg) translateZ(430px);
+}
+
+.image:nth-child(5) {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENTVf2f5X6eWvhpnerFxSLaV8NLdE0I6xwg&s);
+  transform: rotateY(160deg) translateZ(430px);
+}
+
+.image:nth-child(6) {
+  background-image: url(https://www.fundacionmapfre.com.br/media/noticias/taxa-de-juros-1194x585-1.jpg);
+  transform: rotateY(200deg) translateZ(430px);
+}
+
+.image:nth-child(7) {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3_LyPbdygVsTa2MAJMmt5EOmVC6FutXxhdg&s);
+  transform: rotateY(240deg) translateZ(430px);
+}
+
+.image:nth-child(8) {
+  background-image: url(https://assets.bizcapital.com.br/staging-blog/uploads/20190601145913/Organiza%C3%A7%C3%A3o-Financeira-1.jpg);
+  transform: rotateY(280deg) translateZ(430px);
+}
+
+.image:nth-child(9) {
+  background-image: url(https://neon.com.br/aprenda/wp-content/uploads/2023/12/metas-para-proximo-ano.png);
+  transform: rotateY(320deg) translateZ(430px);
+}
+
+@keyframes rotate360 {
+
+  from {
+      transform: rotateY(0deg);
+  }
+  to {
+      transform: rotateY(-360deg);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsividade para telas menores */
+
+/* Layout original (grande) */
+@media (max-width: 768px) {
+  /* Ajuste no slider, mantendo as imagens originais */
+  .slider {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      width: 100%;
+      position: relative;
+  }
+
+  .item {
+      flex: 1 0 20%;
+      height: auto;
+      object-fit: contain;
+  }
+
+  .home-popular {
+      width: 100%;
+      padding: 10vh 4vw 5vh 1vw;
+  }
+
+  .small1, .small2 {
+      height: 120px;
+      top: 50px;
+  }
+
+  .big1, .big2 {
+      height: 180px;
+      top: 20px;
+  }
+
+  .focus {
+      height: 220px;
+      left: 90px;
+  }
+}
+
+/* Para telas pequenas (móbile) */
+@media (max-width: 480px) {
+  /* Exibir apenas uma imagem e os controles de navegação */
+  .slider {
+      display: none; /* Oculta o carrossel completo */
+  }
+
+  .focus {
+      display: block;
+      width: 100%;
+      height: 250px;
+      position: relative;
+      margin: auto;
+  }
+
+  .slider-prev, .slider-next {
+      display: block;
+      font-size: 30px;
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+
+  .image {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      background-size: cover;
+      height: 100%;
+      top: 0;
+  }
+
+  .home-popular h3 {
+      display: block;
+      font-size: 22px;
+      color: #924ef2;
+      text-align: center;
+      margin-top: 20px;
+  }
+
+  .small1, .small2, .big1, .big2, .focus {
+      display: none; /* Esconde outras imagens */
+  }
+
+  .container_yt {
+      width: 90%;
+  }
+}
+
+/* Ocultar textos a partir de 720px */
+@media (max-width: 720px) {
+  .titulo,
+  .descricao,
+  .descricao-introducao, .further-description,
+  .description,
+  .topo_cursos_h1 {
+      display: none;
+  }
+  .image {
+    width: 80%; 
+    height: auto; 
+    margin: 0 auto;  
+}
+
+}

@@ -1,0 +1,144 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+html{
+    font-size: 14px;
+}
+
+body{
+    background-color: #171322;
+    height: 100%;
+}
+
+.container{
+    height: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    color: #fff;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.degrade{
+    background: linear-gradient(45deg,
+  #00b6cd,#7129d6, #231b6d);
+
+
+  background-size: 300% 300%;
+  animation: colors 7s infinite alternate;
+}
+
+@keyframes colors {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 50% 0%;
+  }
+
+}
+
+/* ESTILO DO HEADER */
+
+header{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header img{
+    width:225px;
+    height: 200px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+}
+
+header h1{
+    font-size: 2em;
+    margin-bottom: 10px;
+    font-weight: 300;
+    background: linear-gradient(45deg,   #00b6cd,#7129d6, #e950cd);
+    background-size: 400% 100%;
+    animation: degrade 10s linear infinite alternate;
+    color: #171322;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    outline: none;
+}
+
+@keyframes degrade {
+    0%{
+        background-position-x: 0%;
+    }
+
+    100%{
+        background-position: 400%;
+    }
+
+}
+
+/* ESTILO DOS BOTÕES */
+
+section.botoes-links{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+a.link button{
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: #fff;
+    transition: .2s;
+}
+
+a.link i{
+    font-size: 1.5em;
+}
+
+a.link button:hover, footer a.btn-footer:hover{
+    transform: scale(1.05);
+}
+
+/* ESTILO DO FOOTER */
+
+footer{
+    text-align: center;
+    margin: 30px;
+}
+
+footer a.btn-footer{
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    font-size: 2em;
+    line-height: 60px;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: .2s;
+    font-size: 20px;
+}

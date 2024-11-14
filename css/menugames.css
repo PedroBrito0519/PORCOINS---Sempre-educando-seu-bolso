@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+    *{
+      font-family: "Pixelify Sans", sans-serif;
+
+    }
+    :root{
+        --default: #6610F2;
+    }
+    h5{
+        font-size: 1rem  !important;
+    }
+    .iniciar_jogo{
+      color: #6610F2;
+      text-decoration: none;
+    }
+    .iniciar_jogo:hover{
+      color: #ffffff;
+      text-decoration: none;
+    }
+ 
+    
+.glow-effect {
+    position: absolute;
+    pointer-events: none; 
+    width: 100px; 
+    height: 100px; 
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.226) 0%, rgba(255, 255, 255, 0.007) 60%);
+    border-radius: 50%; 
+    opacity: 0; 
+    transition: opacity 0.2s;
+    z-index: 0; 
+}
+
+.pixel {
+    position: absolute;
+    width: 10px; /* Aumente a largura para simular pixels */
+    height: 10px; /* Aumente a altura para simular pixels */
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
+    pointer-events: none; 
+    animation: fadeOut 0.5s forwards; 
+   
+}
+
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+    .flex-game{
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        padding: 0 10px;
+    }
+
+    .card-promo-game{
+        display: flex;
+        flex-direction: column;
+        width: 216px;
+        margin: 4px 19px;
+        cursor: pointer;
+        
+    }
+    .card-promo-game-img {
+        position: relative;
+        padding-bottom: calc(4 / 3 * 100%);
+        background: linear-gradient(to bottom, rgb(43, 43, 43), rgb(32 32 32 / 0%));
+        color: rgba(245, 245, 245, 0.6);
+        overflow: hidden;
+        border-radius: 15px;
+    }
+    .card-promo-game-img img{
+        position: absolute;
+        height: 100%;
+        width: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        filter: brightness(0.5);
+        opacity: 1;
+        border-radius: 10px ;
+        transition-property: all;
+        transition-duration: 0.3s;
+        
+    }
+    .card-promo-game:hover img{
+        filter: brightness(1);
+    }
+    .card-promo-game-body{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 8px 4px;
+        font-size: .45rem !important;
+    }
+    .card-promo-game-body-title{
+        font-size: .75rem !important;
+        font-weight: 500;
+        color: #6610F2 ;
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+    }
+    .iniciar_jogo{
+               display: flex;
+        align-items: center;
+        border-radius: 50px;
+        background: white;
+        width: 92px;
+        color: #6610F2;
+        margin: 10px 0;
+        user-select: none;
+        cursor: pointer;
+        transition-property: all;
+        transition-duration: 0.3s;
+    }
+    .iniciar_jogo:hover{
+        display: flex;
+ align-items: center;
+ border-radius: 50px;
+ background: white;
+ width: 92px;
+ color: #6610F2;
+ margin: 10px 0;
+ user-select: none;
+ cursor: pointer;
+ transition-property: all;
+ transition-duration: 0.3s;
+}
+    .iniciar{
+        display: flex;
+        align-items: center;
+        border-radius: 50px;
+        background: white;
+        width: 92px;
+        color: #6610F2;
+        margin: 10px 0;
+        user-select: none;
+        cursor: pointer;
+        transition-property: all;
+        transition-duration: 0.3s;
+    }
+    .iniciar:hover{
+        background: #6610F2;
+    
+    }
+ 
+    .modal.show .modal-dialog{
+        top: 37%;
+    }
+    .spinner-border{
+        border: 0.25em solid var(--default) !important;
+        border-right-color: transparent !important;
+    }
+    .display-3{
+      margin: 50px;
+      color: white;
+      margin-top: 80px;
+    }
+
+
+
+.logo img {
+    width: 100%;   
+    max-width: 250px; 
+    height: auto; 
+}
+
+@media screen and (max-width: 768px) {
+    .logo img {
+        max-width: 180px; 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo img {
+        max-width: 120px;  
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navegacao {
+        display: none; 
+    }
+
+    .logo {
+        display: block; 
+    }
+
+    .btn-abrir-menu {
+        display: block; 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo img {
+        max-width: 120px;  
+    }
+}
