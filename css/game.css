@@ -1,0 +1,61 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    position: relative; /* Para o pseudo-elemento */
+}
+
+body {
+    background-image: url(banner.png);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    font-family: 'Press Start 2P', cursive;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 40px;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    flex-direction: column;
+}
+
+a {
+    width: 600px;
+    height: 90px;
+    background-color: #4e54c8;
+    border: none;
+    color: white;
+    padding: 15px;
+    font-size: 34px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-bottom: 15px;
+    display: flex; /* Permite o uso de align-items e justify-content */
+}
+#canvas {
+    object-fit: contain;
+    max-width: 100%;
+    min-height: 90%;
+}
