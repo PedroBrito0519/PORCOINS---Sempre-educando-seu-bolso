@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORCOINS - Decisões Financeiras de João</title>
+    <link rel="icon" href="res/assets/Favicon.png">
+    <link rel="stylesheet" href="res/css/style.css">
+    <link rel="stylesheet" href="res/css/batalha1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <div class="health-bar" id="playerHealthBar">
+            <div class="health" id="playerHealth"></div>
+        </div>
+        <img id="player" class="character" src="res/assets/personagem.png" alt="Cavaleiro">
+        
+        <div class="health-bar" id="enemyHealthBar">
+            <div class="health" id="enemyHealth"></div>
+        </div>
+        <img class="enemy" src="res/assets/recrutas-removebg-preview.png" alt="Inimigo">
+
+        <div class="health-bar" id="bossHealthBar" style="display: none;">
+            <div class="health" id="bossHealth"></div>
+        </div>
+        <img class="boss" src="res/assets/boss-removebg-preview.png" alt="Boss" style="display: none;">
+
+
+        <div id="ground"></div>
+
+        <!-- Adicione plataformas e obstáculos usando imagens -->
+        <img class="platform" src="css/PLATAFORMA.png" alt="Plataforma" style="left: 200px; bottom: 150px;">
+        <img class="platform" src="css/PLATAFORMA.png" alt="Plataforma" style="left: 400px; bottom: 250px;">
+        <img class="platform" src="css/PLATAFORMA.png" alt="Plataforma" style="left: 600px; bottom: 350px;">
+    </div>
+
+    <div id="modal" style="display: none;">
+        <div id="modalMessage"></div>
+        <button id="restartBtn">Reiniciar</button>
+        <button id="continueBtn" style="display: none;">Continuar</button>
+    </div>
+    
+    <script src="res/js/batalha1.js"></script>
+</body>
+</html>

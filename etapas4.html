@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORCOINS GAME</title>
+    <link rel="stylesheet" href="res/css/etapas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="icon" href="./res/assets/Favicon.png">
+</head>
+<body onload="hideLoadingScreen()">
+    <!-- Tela de Carregamento -->
+    <div id="loading-screen">
+        <div class="loading-container">
+            <img src="res/assets/personagem.png" alt="Cavaleiro atacando" class="loading-knight">
+            <p>Carregando...</p>
+        </div>
+    </div>
+
+    <!-- Conteúdo da Página -->
+    <div id="page-content">
+        <div class="banner">
+            <h1>MISSÕES</h1>
+           
+        </div>
+
+        <div class="mission unlocked" data-info="Missão 1: Aprendendo educação financeira!">
+            <a href="game1.html">
+                <p>Missão 1</p> 
+                <div class="preview">
+                    <video src="res/assets/etapa1.gif" muted></video>
+                </div>
+            </a>
+        </div>
+        
+            <div class="mission unlocked" data-info="Missão 2: Evoluindo nas decisões!">
+                <a href="game2.html">
+                <p>Missão 2</p>
+                <div class="preview">
+                    <video src="res/assets/etapa2.gif" muted></video>
+                </div>
+            </a>
+            </div>
+            <div class="mission unlocked" data-info="Missão 3: Aprendendo sobre gastos!">
+                <a href="game3.html">
+                <p>Missão 3</p>
+                <div class="preview">
+                    <video src="res/assets/etapa3.gif" muted></video>
+                </div>
+            </a>
+            </div>
+            <div class="mission unlocked" data-info="Missão 4: Aprendendo sobre investimentos!">
+                <a href="game4.html">
+                <p>Missão 4</p>
+                <div class="preview">
+                    <video src="res/assets/etapa4.gif" muted></video>
+                </div>
+            </a>
+            </div>
+            <div class="mission locked" data-info="Missão 5: Aprendendo sobre financias!">
+                <a href="game5.html">
+                <p>Missão 5</p>
+                <div class="preview">
+                    <video src="res/assets/etapa5.gif" muted></video>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <div id="mission-info" class="info-box">
+            <h2>Informações da Missão</h2>
+            <p>Selecione uma missão para ver os detalhes.</p>
+        </div>
+    </div>
+
+    <script src="res/js/etapas.js"></script>
+</body>
+</html>

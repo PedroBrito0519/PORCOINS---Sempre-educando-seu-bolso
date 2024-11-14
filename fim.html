@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORCOINS FIM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="icon" href="res/assets/Favicon.png">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            background-image: url('res/css/banner.png'); /* Altere para a imagem de fundo */
+            background-size: cover;
+            background-position: center;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            text-align: center;
+        }
+        .btn {
+            margin-top: 20px;
+            background-color: #842bc0;
+            border: none;
+            color: white;
+            padding: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #842bc0;
+        }
+    </style>
+</head>
+<body>
+    <div id="modal1" class="modal">
+        <h2>Fim da História</h2>
+        <p>Você chegou ao fim da sua jornada. com grande sabedoria em suas decisões chegou a hora de relaxar!</p>
+        <button class="btn" onclick="showBonusModal()">Continuar para o Bônus</button>
+        <button class="btn" onclick="goToMenu()">Voltar ao Menu Inicial</button>
+    </div>
+
+    <div id="modal2" class="modal">
+        <h2>Encontre todas as moedas</h2>
+        <p>passe de todas as fases desse game para conseguir finalizar</p>
+        <button class="btn" onclick="startBonus()">Começar o Bônus</button>
+        <button class="btn" onclick="closeBonusModal()">Cancelar</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+            document.getElementById("modal1").style.display = "block"; // Mostra o primeiro modal
+        };
+
+        function showBonusModal() {
+            document.getElementById("modal1").style.display = "none"; // Esconde o primeiro modal
+            document.getElementById("modal2").style.display = "block"; // Mostra o segundo modal
+        }
+
+        function closeBonusModal() {
+            document.getElementById("modal2").style.display = "none"; // Esconde o segundo modal
+            document.getElementById("modal1").style.display = "block"; // Retorna ao primeiro modal
+        }
+
+        function goToMenu() {
+            window.location.href = 'MENU GAMES.html'; // Redireciona para o menu inicial
+        }
+
+        function startBonus() {
+            window.location.href = 'comeco.html'; // Redireciona para o jogo bônus
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro de Dados</title>
+     <!--fonts -->
+     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Young+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/Filtro.css">
+    <link rel="icon" href="imagens/Favicon.png">
+    <link rel="stylesheet" href="CSS/chat.css">
+    <link rel="stylesheet" href="CSS/Filtro.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="js/filtro.js" defer></script>
+    <script src="js/menu.js" defer></script>
+    <script src="js/error.js" defer></script>
+</head>
+<body>
+    <div class="glow-effect"></div>
+    
+    <div class="container_filtro">
+        <h1>Bem-vindo ao nosso Curso!</h1>
+        <p>Estamos felizes em ter você aqui! Vamos descobrir como podemos ajudar você.</p>
+        <form id="filterForm">
+            <label for="option">Qual informação você gostaria de explorar?</label>
+            <select id="option" name="option">
+                <option value="">Selecione uma opção...</option>
+                <option value="materiais.html">📖 Ver Materiais</option>
+                <option value="links.html">🌐 Acessar Links Úteis</option>
+                <option value="pagina3">💻 Cursos Disponíveis</option>
+            </select>
+            <button type="submit">
+                <span>📚</span> Enviar
+            </button>
+        </form>
+    </div>
+</body>
+</html>

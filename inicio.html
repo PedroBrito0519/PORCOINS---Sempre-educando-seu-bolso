@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORCOINS - INICIO</title>
+    <link rel="icon" href="res/assets/Favicon.png">
+    <link rel="stylesheet" href="res/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="loader">
+        <h1>PORCOINS GAME</h1>
+        <div class="sword"></div>
+        <button class="btn" onclick="openStory(1)">Começar Jogo</button>
+        <a class="btn" href="MENU GAMES.html">VOLTAR AO INICIO</a>
+    </div>
+
+
+    <!-- Modal da História -->
+    <div id="storyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeStoryModal()">&times;</span>
+            <h2 id="storyTitle">PORCOINS GAME</h2>
+            <p id="storyText"></p>
+            <button class="btn" onclick="nextStory()">Continuar</button>
+            <button class="btn" onclick="closeStoryModal()">Voltar</button>
+        </div>
+    </div>
+
+
+    <!-- Áudios -->
+    <audio id="backgroundMusic" loop>
+        <source src="medieval-citytavern-ambient-235876.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+
+    <audio id="attackSound">
+        <source src="draw-sword1-44724.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+
+    <script src="res/js/carregamento.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação e Lista de Compras</title>
+     <!--fonts -->
+     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Young+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/contato.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="js/menu.js" defer></script>
+    <script src="js/avaliacao.js" defer></script>
+    <link class="titulo-logo" rel="icon" href="imagens/Favicon.png">
+</head>
+<body>
+    <div class="glow-effect"></div>
+        <div class="container-avaliacoes">
+            <a href="home.html" class="voltar_button">VOLTAR</a>
+        <h2>Avalie nosso serviço</h2>
+        <div class="rating">
+            <input class="input" type="radio" name="star" id="star1" onclick="updateFeedback('Amei!😍')">
+            <label class="label" for="star1"></label>
+            <input class="input" type="radio" name="star" id="star2" onclick="updateFeedback('Gostei Muito!🙂')">
+            <label class="label" for="star2"></label>
+            <input class="input" type="radio" name="star" id="star3" onclick="updateFeedback('Tá Ok!😐')">
+            <label class="label" for="star3"></label>
+            <input class="input" type="radio" name="star" id="star4" onclick="updateFeedback('Não gostei muito!🙄')">
+            <label class="label" for="star4"></label>
+            <input class="input" type="radio" name="star" id="star5" onclick="updateFeedback('Odiei!!😠')">
+            <label class="label" for="star5"></label>
+        </div>
+
+        <h1 id="feedback-message"></h1>
+
+
+        <form id="form-feedback">
+            <textarea class="form_textarea" id="feedback-input" placeholder="Digite sua mensagem aqui..." required></textarea>
+            <button class="form_button" type="submit">Confirmar</button>
+        </form>
+
+        <h2>Mensagens</h2>
+        <ul id="feedback-list"></ul>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Editar Mensagem</h2>
+            <textarea id="edit-feedback-input"></textarea>
+            <button class="form_button" id="save-button">Salvar</button>
+            <button class="form_button" id="delete-button">Excluir</button>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <a class="btn_ava" href="agradecimento.html">
+            <button>ENVIAR</button>
+        </a>
+    </div>
+</body>
+</html>

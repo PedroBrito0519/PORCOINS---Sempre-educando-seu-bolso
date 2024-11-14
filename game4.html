@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORCOINS - Decisões Financeiras de João</title>
+    <link rel="icon" href="res/assets/Favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+        body {
+            font-family: 'Press Start 2P', cursive;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('res/css/casa.jpg');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); 
+            z-index: 1; 
+        }
+        .container {
+            position: relative; 
+            z-index: 2; 
+        }
+        .title {
+            font-size: 48px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Aumente o espaço entre os botões */
+    align-items: center; /* Centraliza os botões horizontalmente */
+    margin: 20px; /* Adiciona margem ao redor do contêiner de botões */
+}
+
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        .btn {
+    background-color: #4e54c8;
+    border: none;
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: normal;
+    width: 100%; /* Faz com que os botões ocupem toda a largura do contêiner */
+    max-width: 400px; /* Define uma largura máxima para os botões */
+}
+
+        .btn:hover {
+            background-color: #4e54c8;
+        }
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%; 
+            max-width: 800px; 
+            height: auto;
+            background-color: rgba(255, 255, 255, 1); 
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        }
+        .modal-content {
+            position: relative;
+            padding: 20px;
+            color: #000;
+            font-weight: normal;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        .lives {
+            display: flex;
+            align-items: center;
+            font-size: 16px; 
+        }
+        .life-icon {
+            width: 20px; 
+            height: 20px; 
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="introModal" class="modal">
+            <div class="modal-content">
+                <h2>Introdução</h2>
+                <p>Você é João, e agora precisa administrar o orçamento da sua família. Faça as escolhas certas para garantir que todos estejam felizes e financeiramente seguros!</p>
+                <div class="controls">
+                    <button class="btn" onclick="startGame()">Começar o Jogo</button>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="title">Orçamento Familiar de João</h1>
+        <div id="options" class="buttons" style="display: none;">
+            <button class="btn" onclick="selectOption(0)">Definir o Orçamento Mensal</button>
+            <button class="btn" onclick="selectOption(1)">Reduzir Gastos com Alimentação</button>
+            <button class="btn" onclick="selectOption(2)">Investir em Educação para as Crianças</button>
+            <button class="btn" onclick="selectOption(3)">Economizar para Férias em Família</button>
+            <button class="btn" onclick="selectOption(4)">Criar um Fundo de Emergência</button>
+        </div>
+
+        <div id="budgetOptions" class="buttons" style="display: none;">
+            <h3>Qual é o seu orçamento mensal?</h3>
+            <button class="btn" onclick="setMonthlyBudget(2000)">R$ 2.000</button>
+            <button class="btn" onclick="setMonthlyBudget(5000)">R$ 5.000</button>
+        </div>
+
+        <div id="foodOptions" class="buttons" style="display: none;">
+            <h3>Você quer:</h3>
+            <button class="btn" onclick="reduceFoodCosts('Cozinhar em casa')">Cozinhar em casa</button>
+            <button class="btn" onclick="reduceFoodCosts('Fazer compras em promoção')">Fazer compras em promoção</button>
+        </div>
+
+        <div id="educationOptions" class="buttons" style="display: none;">
+            <h3>Qual tipo de educação você deseja investir?</h3>
+            <button class="btn" onclick="investInEducation('Curso de Música')">Curso de Música</button>
+            <button class="btn" onclick="investInEducation('Aulas de Inglês')">Aulas de Inglês</button>
+        </div>
+
+        <div id="vacationOptions" class="buttons" style="display: none;">
+            <h3>Quanto você deseja economizar para as férias?</h3>
+            <button class="btn" onclick="saveForVacation(1000)">R$ 1.000</button>
+            <button class="btn" onclick="saveForVacation(3000)">R$ 3.000</button>
+        </div>
+
+        <div id="emergencyFundOptions" class="buttons" style="display: none;">
+            <h3>Quanto você deseja destinar para o fundo de emergência?</h3>
+            <button class="btn" onclick="createEmergencyFund(500)">R$ 500</button>
+            <button class="btn" onclick="createEmergencyFund(1500)">R$ 1.500</button>
+        </div>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div id="story"></div>
+                <div class="controls">
+                    <button id="continueButton" class="btn" onclick="continueGame()" style="display: none;">Continuar Jogo</button>
+                </div>
+                <div id="lives" class="lives"></div>
+            </div>
+        </div>
+        
+        <div id="resultModal" class="modal">
+            <div class="modal-content">
+                <h2 id="resultMessage"></h2>
+                <div class="controls">
+                    <button class="btn" id="continueGameButton" onclick="continueGame()">Continuar Jogo</button>
+                    <button class="btn" id="restartButton" onclick="restartGame()">Reiniciar Jogo</button>
+                    <button class="btn" id="menuButton" onclick="showMenu()">Voltar ao Menu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const stories = [
+            [
+                "Você definiu seu orçamento mensal. Agora, como você irá administrá-lo?",
+                ""
+            ],
+            [
+                "Você decidiu reduzir os gastos com alimentação. O que fará?",
+                ""
+            ],
+            [
+                "Você escolheu investir em educação para as crianças. Que curso irá escolher?",
+                ""
+            ],
+            [
+                "Você decidiu economizar para as férias da família. Quanto você quer economizar?",
+                ""
+            ],
+            [
+                "Você decidiu criar um fundo de emergência. Quanto irá destinar?",
+                ""
+            ]
+        ];
+
+        let currentOption = 0;
+        let lives = 3;
+
+        window.onload = function() {
+            document.getElementById("introModal").style.display = "block";
+        };
+
+        function startGame() {
+            document.getElementById("introModal").style.display = "none";
+            document.getElementById("options").style.display = "block";
+        }
+
+        function selectOption(option) {
+            currentOption = option;
+            document.getElementById("story").innerText = stories[option][0];
+            document.getElementById("options").style.display = "none";
+
+            if (option === 0) {
+                document.getElementById("budgetOptions").style.display = "block";
+            } else if (option === 1) {
+                document.getElementById("foodOptions").style.display = "block";
+            } else if (option === 2) {
+                document.getElementById("educationOptions").style.display = "block";
+            } else if (option === 3) {
+                document.getElementById("vacationOptions").style.display = "block";
+            } else if (option === 4) {
+                document.getElementById("emergencyFundOptions").style.display = "block";
+            }
+            updateLives();
+        }
+
+        function setMonthlyBudget(amount) {
+            let message = `Você definiu o orçamento mensal em R$ ${amount}.`;
+            endGame(message);
+        }
+
+        function reduceFoodCosts(action) {
+            let message = `Você decidiu ${action} para reduzir os gastos com alimentação.`;
+            endGame(message);
+        }
+
+        function investInEducation(course) {
+            let message = `Você escolheu investir no ${course}. Boa escolha!`;
+            endGame(message);
+        }
+
+        function saveForVacation(amount) {
+            let message = `Você decidiu economizar R$ ${amount} para as férias da família. Divirta-se!`;
+            endGame(message);
+        }
+
+        function createEmergencyFund(amount) {
+            let message = `Você destinará R$ ${amount} para o fundo de emergência. Ótima decisão!`;
+            endGame(message);
+        }
+
+        function continueGame() {
+            endGame("Continue tomando decisões sábias!");
+            setTimeout(() => {
+                    window.location.href = "etapas5.html"; 
+                }, 3000);
+        }
+
+        function endGame(message) {
+            document.getElementById("budgetOptions").style.display = "none"; 
+            document.getElementById("foodOptions").style.display = "none"; 
+            document.getElementById("educationOptions").style.display = "none"; 
+            document.getElementById("vacationOptions").style.display = "none"; 
+            document.getElementById("emergencyFundOptions").style.display = "none"; 
+            document.getElementById("modal").style.display = "none";
+            document.getElementById("resultMessage").innerText = message;
+            document.getElementById("resultModal").style.display = "block";
+            document.getElementById("menuButton").style.display = "block";
+        }
+
+        function updateLives() {
+            let livesContainer = document.getElementById("lives");
+            livesContainer.innerHTML = '';
+            for (let i = 0; i < lives; i++) {
+                livesContainer.innerHTML += '<img class="life-icon" src="https://example.com/life-icon.png" alt="Coração">';
+            }
+        }
+
+        function restartGame() {
+            lives = 3;
+            currentOption = 0;
+            document.getElementById("resultModal").style.display = "none";
+            document.getElementById("modal").style.display = "none";
+            document.getElementById("options").style.display = "block";
+            document.getElementById("budgetOptions").style.display = "none"; 
+            document.getElementById("foodOptions").style.display = "none"; 
+            document.getElementById("educationOptions").style.display = "none"; 
+            document.getElementById("vacationOptions").style.display = "none"; 
+            document.getElementById("emergencyFundOptions").style.display = "none"; 
+            updateLives();
+        }
+
+        function showMenu() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porcoins Game - Finanças Pessoais</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="icon" href="res/assets/Favicon.png">
+    <link rel="stylesheet" href="res/css/antesgame1.css">
+    <style>
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: #282c34;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container_modal {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: background-image 0.5s;
+            width: 90%;
+            max-width: 600px;
+        }
+        .dialogue-input2 {
+            width: 100%;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .btn_dialogo {
+            background-color: #4e54c8;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn_dialogo:hover {
+            background-color: #3a3f78;
+        }
+    </style>
+</head>
+<body>
+    <div class="container_modal">
+        <div class="dialogue">
+            <div class="dialogue-text">
+                <input type="text" id="dialogueInput" class="dialogue-input2" value="João chegou à etapa sobre finanças pessoais." readonly>
+                <button class="btn_dialogo" id="nextButton" onclick="nextDialogue()">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let dialogueIndex = 0;
+        const dialogues = [
+            { text: "João chegou à etapa sobre finanças pessoais.", background: "res/css/escritorio.jpg" },
+            { text: "Ele refletiu sobre suas escolhas financeiras até agora.", background: "res/css/escritorio.jpg" },
+            { text: "Ele percebeu a importância de controlar seus gastos e fazer um orçamento.", background: "res/css/escritorio.jpg" },
+            { text: "Agora, ele decide que é hora de criar um plano financeiro para o futuro.", background: "res/css/escritorio.jpg" },
+            { text: "João lista suas receitas e despesas mensais para entender melhor sua situação.", background: "res/css/escritorio.jpg" },
+            { text: "Ele descobre que pode economizar ao evitar gastos desnecessários.", background: "res/css/escritorio.jpg" },
+            { text: "Com um bom controle financeiro, João se sente mais seguro sobre seu futuro.", background: "res/css/escritorio.jpg" },
+            { text: "Agora, ele está pronto para enfrentar novos desafios financeiros!", background: "res/css/escritorio.jpg" },
+        ];
+
+        function nextDialogue() {
+            if (dialogueIndex < dialogues.length) {
+                const currentDialogue = dialogues[dialogueIndex];
+
+                // Atualiza o texto
+                document.getElementById("dialogueInput").value = currentDialogue.text;
+
+                // Atualiza o fundo da container_modal
+                document.querySelector('.container_modal').style.backgroundImage = `url(${currentDialogue.background})`;
+
+                dialogueIndex++;
+            } else {
+                window.location.href = 'game6.html'; // Redireciona para a próxima página
+            }
+        }
+    </script>
+</body>
+</html>

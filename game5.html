@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORCOINS - Decisões Financeiras de João</title>
+    <link rel="icon" href="res/assets/Favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+        body {
+            font-family: 'Press Start 2P', cursive;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('res/css/banner.png');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); 
+            z-index: 1; 
+        }
+        .container {
+            position: relative; 
+            z-index: 2; 
+        }
+        .title {
+            font-size: 48px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Aumente o espaço entre os botões */
+    align-items: center; /* Centraliza os botões horizontalmente */
+    margin: 20px; /* Adiciona margem ao redor do contêiner de botões */
+}
+
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        .btn {
+    background-color: #4e54c8;
+    border: none;
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: normal;
+    width: 100%; /* Faz com que os botões ocupem toda a largura do contêiner */
+    max-width: 400px; /* Define uma largura máxima para os botões */
+}
+
+        .btn:hover {
+            background-color: #4e54c8;
+        }
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%; 
+            max-width: 800px; 
+            height: auto;
+            background-color: rgba(255, 255, 255, 1); 
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        }
+        .modal-content {
+            position: relative;
+            padding: 20px;
+            color: #000;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        .lives {
+            display: flex;
+            align-items: center;
+            font-size: 16px; 
+        }
+        .life-icon {
+            width: 20px; 
+            height: 20px; 
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="introModal" class="modal">
+            <div class="modal-content">
+                <h2>Introdução</h2>
+                <p>Você é João, e precisa aprender a gerenciar suas finanças pessoais. Faça escolhas inteligentes para alcançar a segurança financeira!</p>
+                <div class="controls">
+                    <button class="btn" onclick="startGame()">Começar o Jogo</button>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="title">Finanças Pessoais de João</h1>
+        <div id="options" class="buttons" style="display: none;">
+            <button class="btn" onclick="selectOption(0)">Criar um Orçamento Mensal</button>
+            <button class="btn" onclick="selectOption(1)">Investir em Ações</button>
+            <button class="btn" onclick="selectOption(2)">Economizar para Aposentadoria</button>
+            <button class="btn" onclick="selectOption(3)">Pagar Dívidas</button>
+            <button class="btn" onclick="selectOption(4)">Controlar Gastos</button>
+        </div>
+
+        <div id="budgetOptions" class="buttons" style="display: none;">
+            <h3>Qual é o seu orçamento mensal?</h3>
+            <button class="btn" onclick="setMonthlyBudget(2000)">R$ 2.000</button>
+            <button class="btn" onclick="setMonthlyBudget(5000)">R$ 5.000</button>
+        </div>
+
+        <div id="investmentOptions" class="buttons" style="display: none;">
+            <h3>Quanto você deseja investir em ações?</h3>
+            <button class="btn" onclick="investInStocks(1000)">R$ 1.000</button>
+            <button class="btn" onclick="investInStocks(3000)">R$ 3.000</button>
+        </div>
+
+        <div id="retirementOptions" class="buttons" style="display: none;">
+            <h3>Quanto você deseja economizar para aposentadoria?</h3>
+            <button class="btn" onclick="saveForRetirement(500)">R$ 500</button>
+            <button class="btn" onclick="saveForRetirement(2000)">R$ 2.000</button>
+        </div>
+
+        <div id="debtOptions" class="buttons" style="display: none;">
+            <h3>Qual valor você deseja usar para pagar dívidas?</h3>
+            <button class="btn" onclick="payDebts(1000)">R$ 1.000</button>
+            <button class="btn" onclick="payDebts(5000)">R$ 5.000</button>
+        </div>
+
+        <div id="expenseControlOptions" class="buttons" style="display: none;">
+            <h3>Você deseja:</h3>
+            <button class="btn" onclick="controlExpenses('Criar uma planilha')">Criar uma planilha</button>
+            <button class="btn" onclick="controlExpenses('Usar um aplicativo de finanças')">Usar um aplicativo de finanças</button>
+        </div>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div id="story"></div>
+                <div class="controls">
+                    <button id="continueButton" class="btn" onclick="continueGame()" style="display: none;">Continuar Jogo</button>
+                </div>
+                <div id="lives" class="lives"></div>
+            </div>
+        </div>
+        
+        <div id="resultModal" class="modal">
+            <div class="modal-content">
+                <h2 id="resultMessage"></h2>
+                <div class="controls">
+                    <button class="btn" id="continueGameButton" onclick="continueGame()">Continuar Jogo</button>
+                    <button class="btn" id="restartButton" onclick="restartGame()">Reiniciar Jogo</button>
+                    <button class="btn" id="menuButton" onclick="showMenu()">Voltar ao Menu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const stories = [
+            [
+                "Você criou um orçamento mensal. Como você irá administrá-lo?",
+                ""
+            ],
+            [
+                "Você decidiu investir em ações. Quanto você vai investir?",
+                ""
+            ],
+            [
+                "Você está economizando para a aposentadoria. Quanto deseja economizar?",
+                ""
+            ],
+            [
+                "Você decidiu pagar suas dívidas. Qual valor você irá usar?",
+                ""
+            ],
+            [
+                "Você quer controlar seus gastos. O que fará?",
+                ""
+            ]
+        ];
+
+        let currentOption = 0;
+        let lives = 3;
+
+        window.onload = function() {
+            document.getElementById("introModal").style.display = "block";
+        };
+
+        function startGame() {
+            document.getElementById("introModal").style.display = "none";
+            document.getElementById("options").style.display = "block";
+        }
+
+        function selectOption(option) {
+            currentOption = option;
+            document.getElementById("story").innerText = stories[option][0];
+            document.getElementById("options").style.display = "none";
+
+            if (option === 0) {
+                document.getElementById("budgetOptions").style.display = "block";
+            } else if (option === 1) {
+                document.getElementById("investmentOptions").style.display = "block";
+            } else if (option === 2) {
+                document.getElementById("retirementOptions").style.display = "block";
+            } else if (option === 3) {
+                document.getElementById("debtOptions").style.display = "block";
+            } else if (option === 4) {
+                document.getElementById("expenseControlOptions").style.display = "block";
+            }
+            updateLives();
+        }
+
+        function setMonthlyBudget(amount) {
+            let message = `Você definiu o orçamento mensal em R$ ${amount}. Bom trabalho!`;
+            endGame(message);
+        }
+
+        function investInStocks(amount) {
+            let message = `Você decidiu investir R$ ${amount} em ações. Boa sorte!`;
+            endGame(message);
+        }
+
+        function saveForRetirement(amount) {
+            let message = `Você está economizando R$ ${amount} para a aposentadoria. Ótima escolha!`;
+            endGame(message);
+        }
+
+        function payDebts(amount) {
+            let message = `Você usou R$ ${amount} para pagar suas dívidas. Parabéns!`;
+            endGame(message);
+        }
+
+        function controlExpenses(action) {
+            let message = `Você decidiu ${action} para controlar seus gastos. Ótima decisão!`;
+            endGame(message);
+        }
+
+        function continueGame() {
+            endGame("Continue tomando decisões sábias!");
+            setTimeout(() => {
+                    window.location.href = "fim.html"; 
+                }, 3000);
+        }
+
+        function endGame(message) {
+            document.getElementById("budgetOptions").style.display = "none"; 
+            document.getElementById("investmentOptions").style.display = "none"; 
+            document.getElementById("retirementOptions").style.display = "none"; 
+            document.getElementById("debtOptions").style.display = "none"; 
+            document.getElementById("expenseControlOptions").style.display = "none"; 
+            document.getElementById("modal").style.display = "none";
+            document.getElementById("resultMessage").innerText = message;
+            document.getElementById("resultModal").style.display = "block";
+            document.getElementById("menuButton").style.display = "block";
+        }
+
+        function updateLives() {
+            let livesContainer = document.getElementById("lives");
+            livesContainer.innerHTML = '';
+            for (let i = 0; i < lives; i++) {
+                livesContainer.innerHTML += '<img class="life-icon" src="https://example.com/life-icon.png" alt="Coração">';
+            }
+        }
+
+        function restartGame() {
+            lives = 3;
+            currentOption = 0;
+            document.getElementById("resultModal").style.display = "none";
+            document.getElementById("modal").style.display = "none";
+            document.getElementById("options").style.display = "block";
+            document.getElementById("budgetOptions").style.display = "none"; 
+            document.getElementById("investmentOptions").style.display = "none"; 
+            document.getElementById("retirementOptions").style.display = "none"; 
+            document.getElementById("debtOptions").style.display = "none"; 
+            document.getElementById("expenseControlOptions").style.display = "none"; 
+            updateLives();
+        }
+
+        function showMenu() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>

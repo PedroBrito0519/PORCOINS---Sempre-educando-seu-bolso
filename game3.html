@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORCOINS - Decisões Financeiras de João</title>
+    <link rel="icon" href="res/assets/Favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+        body {
+            font-family: 'Press Start 2P', cursive;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('res/css/casa.jpg');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); 
+            z-index: 1; 
+        }
+        .container {
+            position: relative; 
+            z-index: 2; 
+        }
+        .title {
+            font-size: 48px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Aumente o espaço entre os botões */
+    align-items: center; /* Centraliza os botões horizontalmente */
+    margin: 20px; /* Adiciona margem ao redor do contêiner de botões */
+}
+
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        .btn {
+    background-color: #4e54c8;
+    border: none;
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: normal;
+    width: 100%; /* Faz com que os botões ocupem toda a largura do contêiner */
+    max-width: 400px; /* Define uma largura máxima para os botões */
+}
+
+        .btn:hover {
+            background-color: #4e54c8;
+        }
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%; 
+            max-width: 800px; 
+            height: auto;
+            background-color: rgba(255, 255, 255, 1); 
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        }
+        .modal-content {
+            position: relative;
+            padding: 20px;
+            color: #000;
+            font-weight: normal;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        .lives {
+            display: flex;
+            align-items: center;
+            font-size: 16px; 
+        }
+        .life-icon {
+            width: 20px; 
+            height: 20px; 
+            margin-right: 5px;
+        }
+        .game-option, .course-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .game-option img, .course-option img {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="introModal" class="modal">
+            <div class="modal-content">
+                <h2>Introdução</h2>
+                <p>Você é João, e chegou a hora de tomar uma decisão financeira importante. Com suas economias em mãos, você precisa escolher sabiamente.</p>
+                <div class="controls">
+                    <button class="btn" onclick="startGame()">Começar o Jogo</button>
+                </div>
+            </div>
+        </div>
+        
+        <h1 class="title">Decisões Financeiras de João</h1>
+        <div id="options" class="buttons" style="display: none;">
+            <button class="btn" onclick="selectOption(0)">Abrir uma Conta Poupança</button>
+            <button class="btn" onclick="selectOption(1)">Investir em Ações de Empresas Conhecidas</button>
+            <button class="btn" onclick="selectOption(2)">Comprar Títulos de Loteria</button>
+            <button class="btn" onclick="selectOption(3)">Investir em um Curso de Finanças</button>
+            <button class="btn" onclick="selectOption(4)">Usar Aplicativos de Investimento</button>
+        </div>
+
+        <div id="savingsOptions" class="buttons" style="display: none;">
+            <h3>Você deseja depositar quanto na conta poupança?</h3>
+            <button class="btn" onclick="openSavingsAccount(100)">R$ 100</button>
+            <button class="btn" onclick="openSavingsAccount(500)">R$ 500</button>
+        </div>
+
+        <div id="stockOptions" class="buttons" style="display: none;">
+            <h3>Escolha uma empresa para investir:</h3>
+            <button class="btn" onclick="investInStock('Apple')">Apple</button>
+            <button class="btn" onclick="investInStock('Nike')">Nike</button>
+            <button class="btn" onclick="investInStock('Samsung')">Samsung</button>
+        </div>
+
+        <div id="lotteryOptions" class="buttons" style="display: none;">
+            <h3>Você quer comprar quantos títulos de loteria?</h3>
+            <button class="btn" onclick="buyLottery(1)">1 Título</button>
+            <button class="btn" onclick="buyLottery(5)">5 Títulos</button>
+        </div>
+
+        <div id="courseOptions" class="buttons" style="display: none;">
+            <h3>Qual curso você quer investir?</h3>
+            <button class="btn" onclick="buyCourse('Finanças Pessoais')">Finanças Pessoais</button>
+            <button class="btn" onclick="buyCourse('Investimentos Básicos')">Investimentos Básicos</button>
+        </div>
+
+        <div id="appOptions" class="buttons" style="display: none;">
+            <h3>Escolha um aplicativo de investimento:</h3>
+            <button class="btn" onclick="useInvestmentApp('Simulador de Investimentos')">Simulador de Investimentos</button>
+            <button class="btn" onclick="useInvestmentApp('Aplicativo de Poupança')">Aplicativo de Poupança</button>
+        </div>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div id="story"></div>
+                <div class="controls">
+                    <button id="continueButton" class="btn" onclick="continueGame()" style="display: none;">Continuar Jogo</button>
+                </div>
+                <div id="lives" class="lives"></div>
+            </div>
+        </div>
+        
+        <div id="resultModal" class="modal">
+            <div class="modal-content">
+                <h2 id="resultMessage"></h2>
+                <div class="controls">
+                    <button class="btn" id="continueGameButton" onclick="continueGame()">Continuar Jogo</button>
+                    <button class="btn" id="restartButton" onclick="restartGame()">Reiniciar Jogo</button>
+                    <button class="btn" id="menuButton" onclick="showMenu()">Voltar ao Menu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const stories = [
+            [
+                "Você decidiu abrir uma conta poupança. Quanto você deseja depositar?",
+                ""
+            ],
+            [
+                "Você optou por investir em ações de empresas conhecidas. Qual empresa você escolherá?",
+                ""
+            ],
+            [
+                "Você decidiu comprar títulos de loteria. Quantos você quer comprar?",
+                ""
+            ],
+            [
+                "Você decidiu investir em um curso de finanças. Qual curso você escolherá?",
+                ""
+            ],
+            [
+                "Você decidiu usar aplicativos de investimento. Qual aplicativo você vai usar?",
+                ""
+            ]
+        ];
+
+        let currentOption = 0;
+        let lives = 3;
+
+        window.onload = function() {
+            document.getElementById("introModal").style.display = "block";
+        };
+
+        function startGame() {
+            document.getElementById("introModal").style.display = "none";
+            document.getElementById("options").style.display = "block";
+        }
+
+        function selectOption(option) {
+            currentOption = option;
+            document.getElementById("story").innerText = stories[option][0];
+            document.getElementById("options").style.display = "none";
+
+            if (option === 0) {
+                document.getElementById("savingsOptions").style.display = "block";
+            } else if (option === 1) {
+                document.getElementById("stockOptions").style.display = "block";
+            } else if (option === 2) {
+                document.getElementById("lotteryOptions").style.display = "block";
+            } else if (option === 3) {
+                document.getElementById("courseOptions").style.display = "block";
+            } else if (option === 4) {
+                document.getElementById("appOptions").style.display = "block";
+            }
+        }
+
+        function openSavingsAccount(amount) {
+            let message = `Você depositou R$ ${amount} na conta poupança. Um ótimo começo para suas finanças!`;
+            endGame(message);
+        }
+
+        function investInStock(company) {
+            let message = `Você investiu em ações da ${company}. Boa sorte com seu investimento!`;
+            endGame(message);
+        }
+
+        function buyLottery(tickets) {
+            let message = `Você comprou ${tickets} títulos de loteria. Espero que você ganhe!`;
+            endGame(message);
+        }
+
+        function buyCourse(course) {
+            let message = `Você investiu no curso de ${course}. Isso pode ser muito útil para seu futuro!`;
+            endGame(message);
+        }
+
+        function useInvestmentApp(app) {
+            let message = `Você usou o aplicativo ${app}. Isso pode te ajudar a economizar!`;
+            endGame(message);
+        }
+
+        function continueGame() {
+            endGame("Continue tomando decisões sábias!");
+            setTimeout(() => {
+                    window.location.href = "etapas4.html"; 
+                }, 3000);
+     
+        }
+
+        function endGame(message) {
+            document.getElementById("savingsOptions").style.display = "none"; 
+            document.getElementById("stockOptions").style.display = "none"; 
+            document.getElementById("lotteryOptions").style.display = "none"; 
+            document.getElementById("courseOptions").style.display = "none"; 
+            document.getElementById("appOptions").style.display = "none"; 
+            document.getElementById("modal").style.display = "none";
+            document.getElementById("resultMessage").innerText = message;
+            document.getElementById("resultModal").style.display = "block";
+            document.getElementById("menuButton").style.display = "block";
+        }
+
+        function restartGame() {
+            lives = 3;
+            currentOption = 0;
+            document.getElementById("resultModal").style.display = "none";
+            document.getElementById("modal").style.display = "none";
+            document.getElementById("options").style.display = "block";
+            document.getElementById("savingsOptions").style.display = "none"; 
+            document.getElementById("stockOptions").style.display = "none"; 
+            document.getElementById("lotteryOptions").style.display = "none"; 
+            document.getElementById("courseOptions").style.display = "none"; 
+            document.getElementById("appOptions").style.display = "none"; 
+        }
+
+        function showMenu() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>

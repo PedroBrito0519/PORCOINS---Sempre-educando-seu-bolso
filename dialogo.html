@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORCOINS - Decisões Financeiras de João</title>
+    <link rel="icon" href="res/assets/Favicon.png">
+    <link rel="stylesheet" href="res/css/batalha.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        
+        <div class="dialogue">
+            <input type="text" id="dialogueInput" class="dialogue-input" placeholder="Tudo bem filho!?" readonly>
+            <img id="characterImage" src="res/assets/REI.png" alt="Personagem" class="dialogue-character-img">
+           
+        </div>
+    </div>
+    <button class="btn_dialogo" id="nextButton" onclick="nextDialogue()">Continuar</button>
+
+    <script>
+        let dialogueIndex = 0;
+        const dialogues = [
+    { text: "Pai: aqui está um dinheiro que guardei para você", speaker: "father" },
+    { text: "João: Obrigado!  Mas o que devo fazer com ele?", speaker: "character" },
+
+    { text: "Pai: Use com sabedoria e guarde bem.", speaker: "father" },
+    { text: "João: Vou evitar gastar à toa!", speaker: "character" },
+
+    { text: "Pai: Lembre-se, cada centavo conta.", speaker: "father" },
+    { text: "João: Sim, pai! ", speaker: "character" },
+
+    { text: "Pai: também tive que aprender sobre o dinheiro.", speaker: "father" },
+
+    { text: "João: Sério? O que você aprendeu?", speaker: "character" },
+
+    { text: "Pai: Que economizar é a palavra chave", speaker: "father" },
+    { text: "João: Isso faz sentido..", speaker: "character" },
+
+    { text: "Pai: Estou orgulhoso de você, João. ", speaker: "father" },
+    { text: "João: Obrigado, pai! ", speaker: "character" }
+];
+
+
+
+function nextDialogue() {
+    if (dialogueIndex < dialogues.length) {
+        const currentDialogue = dialogues[dialogueIndex];
+        
+        // Atualiza o placeholder do input
+        document.getElementById("dialogueInput").placeholder = currentDialogue.text;
+
+        // Atualiza a imagem do personagem
+        const characterImage = document.getElementById("characterImage");
+        if (currentDialogue.speaker === "father") {
+            characterImage.src = "res/assets/REI.png"; // Exibe a imagem do rei
+        } else {
+            characterImage.src = "res/assets/personagem.png"; // Exibe a imagem do personagem
+        }
+
+        dialogueIndex++;
+    } else {
+        window.location.href = 'etapas.html'; // Redireciona para a próxima página
+    }
+}
+
+    </script>
+</body>
+</html>

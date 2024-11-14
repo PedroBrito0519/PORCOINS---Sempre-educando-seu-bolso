@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
+        integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Young+Serif&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <!--fim google fonts-->
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!--fim bootstrap-->
+    <link id="theme-style" rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/sobrecurso.css">
+    <script src="js/menu.js" defer></script>
+    <script src="css/tema.js" defer></script>
+    <script src="js/generateresposta.js" defer></script>
+    <script src="js/chat.js" defer></script>
+    <script src="js/sobrecurso.js" defer></script>
+    <link class="titulo-logo" rel="icon" href="imagens/Favicon.png">
+    <title>PORCOINS - Sempre Educando seu Bolso</title>
+    <link class="titulo-logo" rel="icon" href="imagens/Favicon.png">
+</head>
+<div class="glow-effect"></div>
+
+<body onload="hideLoadingScreen()">
+   
+    <!-- Tela de carregamento -->
+    <div id="loading-screen">
+        <div class="loading-container">
+            <img src="imagens/moeda-brilhando-gigante.gif" alt="Moeda girando" class="loading-coin">
+            <p class="loading-text">Carregando...</p>
+        </div>
+    </div>
+    <header id="header">
+        <div class="container">
+            <div class="flex">
+                <div class="logo">
+                    <a href="home.html">
+                        <img class="logo" src="imagens/LOGO_PORCOINS.png" alt="">
+                    </a>
+                </div><!--logo-->
+                
+                <nav>
+                    <ul class="menu-principal">
+                        <li class="menu-item">
+                            <a href="home.html">HOME</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="home.html#missao">Nossa missão</a></li>
+                                <li><a href="home.html#sobre">Sobre o time</a></li>
+                                <li><a href="home.html#Contato">Contato</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="sobrecursos.html">CURSOS</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="sobrecursos.html#sobrecurso">Sobre</a></li>
+                                <li><a href="sobrecursos.html#ajudamos">Em que ajudamos</a></li>
+                                <li><a href="sobrecursos.html#extra">Cursos extras</a></li>
+                                <li><a href="sobrecursos.html#filtro">Filtrador</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="MENU GAMES.html">GAMES</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="inicio.html">Porcoins Game</a></li>
+                                <li><a href="color.html">Coloron</a></li>
+                                <li><a href="buble.html">Bubbles</a></li>
+                                <li><a href="forca.html">Forca Financeira</a></li>
+                                <li><a href="jogo da memoria.html">Jogo da Memoria</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+    
+                <div class="btn-contato">
+                    <a class="btn-contato" href="contato.html"><button>CONTATO</button></a>
+                </div>
+
+
+           <!-- Botão de alternância de tema -->
+<div class="theme-toggle-btn">
+    <button onclick="toggleTheme()" data-tooltip="Tema Escuro">
+        🌞
+    </button>
+</div>
+                <!-- Botão para abrir o menu lateral -->
+                <div class="menu-lateral-btn">
+                    <button onclick="toggleMenu()">☰</button>
+                </div>
+                
+            </div><!--flex-->
+        </div><!--container-->
+    </header>
+    
+    <!-- Menu lateral -->
+    <div id="menu-lateral" class="menu-lateral">
+        <button class="close-btn" onclick="toggleMenu()">×</button>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="sobrecursos.html">CURSOS</a></li>
+            <li><a href="MENU GAMES.html">GAMES</a></li>
+            <li><a href="contato.html">CONTATO</a></li>
+            <li><a href="antesfiltro.html">FILTRADOR</a></li>
+        </ul>
+    </div>
+ <!-- Botão Flutuante do Chat -->
+ <div id="chat-button" class="chat-bubble">
+    💬
+</div>
+
+<!-- Container do Chat -->
+<div class="chat-container" id="chat-container">
+    <!-- Cabeçalho do Chat -->
+    <div class="chat-header">
+        <img src="imagens/Favicon.png" alt="Logo" class="logo">
+        <div class="name">ChatCoin<i class="bi bi-coin"></i></div>
+        <button id="restart-button" class="reset-btn" onclick="resetChat()"><i class="bi bi-arrow-counterclockwise"></i></button>
+        <button id="close-chat-button" class="reset-btn" onclick="closeChat()" style="display:none;"><i class="bi bi-x-lg"></i></button> <!-- Novo botão de fechar -->
+    </div>
+
+    <!-- Caixa de Mensagens -->
+    <div class="chat-box">
+        <div id="messages" class="messages"></div>
+    </div>
+
+    <!-- Campo de Entrada e Botão Enviar -->
+    <input id="user-input" type="text" placeholder="Digite sua mensagem...">
+    <button id="send-btn" onclick="sendMessage()">Enviar</button> 
+</div>
+
+<!-- Fim do chatbot -->
+
+    
+    <section id="Missao" class="scroll">
+
+        <div class="home">
+
+            <div class="home-popular">
+                <h3 id="sobred">NOSSOS CURSOS</h3>
+
+                <div class="slider">
+                    <div class="slider-prev"></div>
+
+                    <ul>
+                        <li class="li_curso">
+                            <a href="antesfiltro.html"><img class="item small1" style="order: 0;" src="imagens/INVESTIMENTO CURSOS.png"></a>
+                        </li>
+                        <li>
+                            <a href="antesfiltro.html"><img class="item big1" style="order: 1;" src="imagens/FINANCIAS.png"></a>
+                        </li>
+
+                        <li>
+                            <a href="antesfiltro.html"><img class="item focus" style="order: 2;" src="imagens/EDUCACAO FINANCEIRA.png"></a>
+                        </li>
+
+                        <li>
+                            <a href="antesfiltro.html"><img class="item big2" style="order: 3;" src="imagens/GASTOS CURSOS.png"></a>
+                        </li>
+
+                        <li>
+                            <a href="antesfiltro.html"><img class="item small2" style="order: 4;" src="imagens/ORÇAMENTO FAMILIAR.png"></a>
+                        </li>
+                    </ul>
+
+                    <div class="slider-next"></div>
+                </div>
+
+                <div class="description">
+                    <h3 data-index="4">INVESTIMENTOS</h3>
+                    <h3 data-index="3">FINANCIAS</h3>
+                    <h3 data-index="2" class="active">INTRODUÇÃO A EDUCAÇÃO FINANCEIRA</h3>
+                    <h3 data-index="1">GASTOS</h3>
+                    <h3 data-index="0">ORÇAMENTO FAMILIAR</h3>
+                </div>
+
+
+                <div class="further-description">
+                    <h2 data-index="14">"As finanças pessoais englobam não só o gerenciamento do dinheiro, mas também o
+                        planejamento para o futuro. Aprenda a controlar sua renda, controlar dívidas e, mais importante,
+                        construir uma reserva de emergência para garantir segurança financeira."</h2>
+                    <h2 data-index="13">"Investir é uma das maneiras mais poderosas de construir riqueza ao longo do
+                        tempo. Aqui, você aprenderá sobre as diferentes formas de investimento, como ações, imóveis,
+                        fundos e criptomoedas, além de como escolher o melhor para o seu perfil e objetivos."</h2>
+                    <h2 data-index="12" class="active">O mundo dos investimentos pode parecer complicado, mas, com a
+                        educação certa, você pode tomar decisões que aumentarão seu patrimônio ao longo do tempo.
+                        Conheça os diferentes tipos de investimentos e como escolher os mais adequados para seu perfil
+                        financeiro!</h2>
+                    <h2 data-index="11">"Os gastos podem ser um grande vilão das finanças pessoais se não forem
+                        controlados. Aprenda a monitorar seus gastos, identificar despesas desnecessárias e adotar
+                        hábitos que ajudam a economizar sem comprometer sua qualidade de vida."</h2>
+                    <h2 data-index="10">"A educação financeira é a base para o sucesso financeiro a longo prazo. Com
+                        ela, você aprende a administrar seu dinheiro de forma inteligente, entender os mercados
+                        financeiros e a planejar para o futuro."
+
+                    </h2>
+                </div>
+            </div>
+
+            <div class="home-header">
+                <h1 class="topo_cursos_h1">PORCOINS</h1>
+                <h1 class="topo_cursos_h1">SEMPRE EDUCANDO</h1>
+                <h1 class="topo_cursos_h1">SEU BOLSO</h1>
+            </div>
+
+        </div>
+
+        <div class="scrolldown">
+            <span class="scrollefeito"></span>
+            <span class="scrollefeito"></span>
+            <span class="scrollefeito"></span>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div class="onda" id="onda1"></div>
+        <div class="onda" id="onda2"></div>
+        <div class="onda" id="onda3"></div>
+        <div class="onda" id="onda4"></div>
+    </section>
+
+    <section class="conteudo">
+
+
+        <div>
+            <div class="container1" id="ajudamos">
+                <div class="text-conteudo">
+                    <h1 class="conteudoh1">NOSSOS <span>METODOS.</span></h1>
+                    <p class="conteudop">
+                        Nosso principal método de ensino é equilibrar diversão e aprendizado, proporcionando aos jovens a oportunidade de adquirir conhecimento de forma envolvente e prazerosa. Através de cursos interativos e jogos educativos, estimulamos a curiosidade e o desejo de aprender, permitindo que cada aluno explore e desenvolva suas habilidades de maneira espontânea e motivada. Nosso objetivo é transformar o aprendizado em uma experiência prazerosa, onde o conhecimento é conquistado naturalmente.
+
+                    </p>
+                    <button class="btn-inscrevase"><a href="antesfiltro.html">INSCREVA-SE NO CURSO</a></button>
+                </div>
+                <img id="" src="imagens/teens.png" alt="Descrição da Imagem" class="img-topo">
+            </div>
+    </section>
+
+
+
+    <main>
+        <div class="cookies-msg" id="cookies-msg">
+            <div class="cookies-txt">
+                <p>Este site usa cookies e tecnologias afins, que são pequenos arquivos ou pedaços de texto baixados
+                    para um
+                    aparelho quando o visitante acessa um website ou aplicativo. Ao utilizar nosso site você está de
+                    acordo com a
+                    utilização dos cookies para te proporcionar uma melhor experiência.</p>
+
+                <div class="cookies-btn">
+                    <button onclick="aceito()">Aceito</button>
+                </div>
+            </div>
+        </div><!--cookies-msg-->
+        <br><br><br><br id="extra">
+        <h1 id="cursos" class="yt_container"> VIDEOS EXTRA DE EDUCAÇÃO FINANCEIRA</h1>
+        <div class="container_yt">
+            <div class="carousel">
+                <div class="image"><a href="https://www.youtube.com/watch?v=7Sje7scdbSw">
+                        <h1>Poupança</h1>
+                    </a></div>
+                <div class="image"><a href="https://www.youtube.com/watch?v=ekIx91XiWCw">
+                        <h1>Investimento</h1>
+                    </a></div>
+                <div class="image"><a href="https://www.youtube.com/watch?v=XSEQNsmxgwY">
+                        <h1>Economização</h1>
+                    </a></div>
+                <div class="image"><a href="https://www.youtube.com/watch?v=O2rcvBXKGXw">
+                        <h1>Contas</h1>
+                    </a></div>
+                <div class="image"><a href="https://www.youtube.com/watch?v=Q3BZpZw7AIw">
+                        <h1>Impostos</h1>
+                    </a></div>
+                <div class="image"><a href="https://www.youtube.com/watch?v=4tVJL9eFk7s">
+                        <h1>Juros</h1>
+                    </a></div>
+                <div class="image"><a href="https://www.youtube.com/watch?v=HSXcvFVtsdM">
+                        <h1>Gastos</h1>
+                    </a></div>
+                <div class="image"><a href="https://www.youtube.com/watch?v=Up1o6pKODu4">
+                        <h1>Organização financeira</h1>
+                    </a></div>
+                <div class="image"><a href="https://www.youtube.com/watch?v=-vjbp0PN_8Q">
+                        <h1> Metas</h1>
+                    </a></div>
+
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      
+    <section id="oferecemos" class="Oferecemos">
+        <div class="banner_itens">
+            <div class="interface">
+                <div class="flex">
+
+
+                    <div id="filtro" class="txt-Oferecemos">
+                        <h1>FILTRADOR DE <span>DADOS</span></h1>
+                        <p>O nosso filtrador de Dados tem como base buscar o melhor conteudo de ensino de acordo com o as caracteristcas da pessoa como por exemplo seu nivel de conhecimento, o que quer aprender, para conseguir entregar o melhor conteudo</p>
+                        <button class="btn-inscrevase"><a href="antesfiltro.html">INSCREVA-SE NO CURSO</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main><footer class="rodape">
+        <ul class="rodape__lista">
+            <h3 class="rodape__titulo">Nossos cursos</h3>
+            <li><a href="sobrecursos.html">Videos Extras</a></li>
+            <li><a href="antesfiltro.html">Apostilas</a></li>
+            <li><a href="antesfiltro.html">Links Uteis</a></li>
+            <li><a href="antesfiltro.html">Financias</a></li>
+            <li><a href="antesfiltro.html">Orçamento Familiar</a></li>
+            <li><a href="antesfiltro.html">Investimentos</a></li>
+            <li><a href="antesfiltro.html">Gastos</a></li>
+          
+        </ul>
+        <ul class="rodape__lista">
+            <h3 class="rodape__titulo">CONTATO</h3>
+            <li><a href="telalinks_pedro.html">Pedro</a></li>
+            <li><a href="telalinks_guilherme.html">Guilherme</a></li>
+            <li><a href="telalinks_felipe.html">Felipe</a></li>
+            <li><a href="telalinks_gustavo.html">Gustavo</a></li>
+        </ul>
+        <ul class="rodape__lista">
+            <h3 class="rodape__titulo">ONDE IR</h3>
+            <li class="txtrodape"><a href="home.html" id="home">Home</a></li>
+            <li class="txtrodape"><a href="sobrecursos.html" id="cursos">cursos</a></li>
+            <li class="txtrodape"><a href="MENU GAMES.html" id="Inspiração">Games</a></li>
+            <li class="txtrodape"><a href="antesfiltro.html" id="time">Filtros</a></li>
+            <li class="txtrodape"><a href="contato.html" id="time">Contato</a></li>
+        </ul>
+        <DIV class="logos"><img src="imagens/LOGO_PORCOINS.png"></DIV>
+        <div class="rodape__logo">
+            <h4></h4>
+    
+            <p class="fim">©2024 1EMIC PorCoins. Todos os direitos reservados. Desenvolvido por Pedro, Felipe, Guilherme, Gustavo Barros. </p>
+        </div>
+    </footer>
+    </body>
+    </html>

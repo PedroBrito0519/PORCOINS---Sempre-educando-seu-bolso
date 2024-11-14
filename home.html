@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <title>PorCoins - Sempre educando seu bolso</title>
+    <!--fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Young+Serif&display=swap" rel="stylesheet">
+    <!--card3d-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
+        integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!--css e script-->
+    <link id="theme-style" rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <script src="js/menu.js" defer></script>
+    <script src="css/tema.js" defer></script>
+    <script src="js/generateresposta.js" defer></script>
+    <script src="js/chat.js" defer></script>
+    <link class="titulo-logo" rel="icon" href="imagens/Favicon.png">
+</head>
+<div class="glow-effect"></div>
+<body onload="hideLoadingScreen()">
+   
+    <!-- Tela de carregamento -->
+    <div id="loading-screen">
+        <div class="loading-container">
+            <img src="imagens/moeda-brilhando-gigante.gif" alt="Moeda girando" class="loading-coin">
+            <p class="loading-text">Carregando...</p>
+        </div>
+    </div>
+    <header id="header">
+        <div class="container">
+            <div class="flex">
+                <div class="logo">
+                    <a href="home.html">
+                        <img class="logo" src="imagens/LOGO_PORCOINS.png" alt="">
+                    </a>
+                </div><!--logo-->
+                
+                <nav>
+                    <ul class="menu-principal">
+                        <li class="menu-item">
+                            <a href="home.html">HOME</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="home.html#missao">Nossa missão</a></li>
+                                <li><a href="home.html#sobre">Sobre o time</a></li>
+                                <li><a href="home.html#Contato">Contato</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="sobrecursos.html">CURSOS</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="sobrecursos.html#sobrecurso">Sobre</a></li>
+                                <li><a href="sobrecursos.html#ajudamos">Em que ajudamos</a></li>
+                                <li><a href="sobrecursos.html#extra">Cursos extras</a></li>
+                                <li><a href="sobrecursos.html#filtro">Filtrador</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="MENU GAMES.html">GAMES</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="inicio.html">Porcoins Game</a></li>
+                                <li><a href="color.html">Coloron</a></li>
+                                <li><a href="buble.html">Bubbles</a></li>
+                                <li><a href="forca.html">Forca Financeira</a></li>
+                                <li><a href="jogo da memoria.html">Jogo da Memoria</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+    
+                <div class="btn-contato">
+                    <a class="btn-contato" href="contato.html"><button>CONTATO</button></a>
+                </div>
+
+
+           <!-- Botão de alternância de tema -->
+<div class="theme-toggle-btn">
+    <button onclick="toggleTheme()" data-tooltip="Tema Escuro">
+        🌞
+    </button>
+</div>
+                <!-- Botão para abrir o menu lateral -->
+                <div class="menu-lateral-btn">
+                    <button onclick="toggleMenu()">☰</button>
+                </div>
+                
+            </div><!--flex-->
+        </div><!--container-->
+    </header>
+    
+    <!-- Menu lateral -->
+    <div id="menu-lateral" class="menu-lateral">
+        <button class="close-btn" onclick="toggleMenu()">×</button>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="sobrecursos.html">CURSOS</a></li>
+            <li><a href="MENU GAMES.html">GAMES</a></li>
+            <li><a href="contato.html">CONTATO</a></li>
+            <li><a href="antesfiltro.html">FILTRADOR</a></li>
+        </ul>
+    </div>
+ 
+    
+    
+
+    <section class="banner">        
+        <div class="txt-topo-site">
+            <h1>WELCOME TO<span><BR>PORCOINS.</span></h1>
+         
+        </div><!--txt-topo-site-->
+
+        <div class="img-topo-site">
+   <img src="imagens/porcotopo.png" alt="">
+        </div><!--img-topo-site-->
+    </section>
+    <section class="ondas-box">
+
+       
+        <div class="onda" id="onda1"></div>
+        <div class="onda" id="onda2"></div>
+        <div class="onda" id="onda3"></div>
+        <div class="onda" id="onda4"></div>
+    </section>
+    <section class="conteudo" id="missao">
+
+
+        <div>
+            <div class="container1" >
+                <div class="text-conteudo">
+                    <h1 class="conteudoh1">EDUCAÇÃO FINANCEIRA <span>FACIL DE APRENDER.</span></h1>
+                    <p class="conteudop">Olá, pessoal! Você sabia que entender de finanças pode ser muito mais
+                        interessante do que parece? Se você é um adolescente que deseja aprender a gerenciar seu
+                        dinheiro de forma simples e eficaz, este curso é ideal para você! Vamos explorar como fazer
+                        escolhas financeiras inteligentes, com exemplos práticos do seu cotidiano. Junte-se a nós e
+                        descubra como construir uma base sólida para o seu futuro financeiro!
+
+                    </p>
+                    <button class="btn-inscrevase"><a href="antesfiltro.html">INSCREVA-SE NO CURSO</a></button>
+                </div>
+                <img id="" src="imagens/teens.png" alt="Descrição da Imagem" class="img-topo">
+            </div>
+    </section><!-- Botão Flutuante do Chat -->
+    <div id="chat-button" class="chat-bubble">
+        💬
+    </div>
+    
+    <!-- Container do Chat -->
+    <div class="chat-container" id="chat-container">
+        <!-- Cabeçalho do Chat -->
+        <div class="chat-header">
+            <img src="imagens/Favicon.png" alt="Logo" class="logo">
+            <div class="name">ChatCoin<i class="bi bi-coin"></i></div>
+            <button id="restart-button" class="reset-btn" onclick="resetChat()"><i class="bi bi-arrow-counterclockwise"></i></button>
+            <button id="close-chat-button" class="reset-btn" onclick="closeChat()" style="display:none;"><i class="bi bi-x-lg"></i></button> <!-- Novo botão de fechar -->
+        </div>
+    
+        <!-- Caixa de Mensagens -->
+        <div class="chat-box">
+            <div id="messages" class="messages"></div>
+        </div>
+    
+        <!-- Campo de Entrada e Botão Enviar -->
+        <input id="user-input" type="text" placeholder="Digite sua mensagem...">
+        <button id="send-btn" onclick="sendMessage()">Enviar</button> 
+    </div>
+    
+    <!-- Fim do chatbot -->
+    
+<main>  <div class="cookies-msg" id="cookies-msg">
+    <div class="cookies-txt">
+        <p>Este site usa cookies e tecnologias afins, que são pequenos arquivos ou pedaços de texto baixados para um aparelho quando o visitante acessa um website ou aplicativo. Ao utilizar nosso site você está de acordo com a utilização dos cookies para te proporcionar uma melhor experiência.</p>
+
+        <div class="cookies-btn">
+            <button onclick="aceito()">Aceito</button>
+        </div>
+    </div>
+</div><!--cookies-msg-->
+
+
+<section id="Missao" class="scroll">
+ <!-- Elementos posicionados em cada canto com imagens -->
+ <div class="elemento elemento-canto elemento-canto-tl">
+    <img src="imagens/elemento1.png" alt="Imagem Canto Superior Esquerdo">
+</div> <!-- Canto superior esquerdo -->
+
+<div class="elemento elemento-canto elemento-canto-tr">
+    <img src="imagens/elemento3.png" alt="Imagem Canto Superior Direito">
+</div> <!-- Canto superior direito -->
+
+<div class="elemento elemento-canto elemento-canto-bl">
+    <img src="imagens/elemento3.png" alt="Imagem Canto Inferior Esquerdo">
+</div> <!-- Canto inferior esquerdo -->
+
+<div class="elemento elemento-canto elemento-canto-br">
+    <img src="imagens/elemento2.png" alt="Imagem Canto Inferior Direito">
+</div> <!-- Canto inferior direito -->
+
+
+    <div class="scroll_text">
+
+        <h2 class="scroll-title">Transforme Sua Vida Financeira!</h2>
+        <p class="scroll-titlep">A PorCOIN é a plataforma perfeita para quem busca aprender sobre finanças de forma fácil e acessível. Desenvolvida por jovens para jovens, oferecemos conteúdos gratuitos que ensinam como gerenciar seu dinheiro de maneira eficiente. Com cursos, vídeos, apostilas. Temos um Chatbot pronto para te ajudar! Ele pode esclarecer suas dúvidas, oferecer recomendações e muito mais, tornando sua experiência na PorCOIN ainda mais fácil e interativa. Você vai dominar sua vida financeira!</p>
+    </div>
+
+  
+
+    <div class="scrolldown">
+        <span class="scrollefeito"></span>
+        <span class="scrollefeito"></span>
+        <span class="scrollefeito"></span>
+    </div>
+
+    <div class="onda" id="onda1"></div>
+    <div class="onda" id="onda2"></div>
+    <div class="onda" id="onda3"></div>
+    <div class="onda" id="onda4"></div>
+</section>
+
+
+    <section class="scroll2">
+
+        <div class="onda" id="onda1"></div>
+        <div class="onda" id="onda2"></div>
+        <div class="onda" id="onda3"></div>
+        <div class="onda" id="onda4"></div>
+        <div class="wrapper">
+
+
+            <div class="area">
+                <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <br><br>
+                <h2 id="comvoce" class="comvoce">Sempre com Você    </h2>
+
+                <div class="scroll_text2">
+                    <p class="texto-inicial">A PorCOIN é o seu espaço de aprendizado financeiro, criado especialmente para adolescentes que
+                        estão começando a gerenciar o próprio dinheiro. Oferecemos diversos cursos que vão te ensinar a
+                        poupar dinheiro, entender juros, lidar com impostos, controlar gastos, economizar, se organizar
+                        e investir. Prepare-se para decolar na sua vida financeira!
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <br id="sobre">
+    </section>
+
+
+    <section id="itens" class="itens-section">
+       
+ <!-- Elementos posicionados em cada canto com imagens -->
+ <div class="elemento elemento-canto elemento-canto-tl_card">
+    <img src="imagens/elemento1.png" alt="Imagem Canto Superior Esquerdo">
+</div> <!-- Canto superior esquerdo -->
+
+<div class="elemento elemento-canto elemento-canto-tr_card">
+    <img src="imagens/elemento3.png" alt="Imagem Canto Superior Direito">
+</div> <!-- Canto superior direito -->
+
+<div class="elemento elemento-canto elemento-canto-bl_card">
+    <img src="imagens/elemento3.png" alt="Imagem Canto Inferior Esquerdo">
+</div> <!-- Canto inferior esquerdo -->
+
+<div class="elemento elemento-canto elemento-canto-br_card">
+    <img src="imagens/elemento2.png" alt="Imagem Canto Inferior Direito">
+</div> <!-- Canto inferior direito -->
+
+        <h2 id="Opcoes">Veja:</h2>
+        <div class="itens-container">
+            <div class="cardd cardd1" data-tilt>
+                <h2>NOSSA EQUIPE</h2>
+                <img src="imagens/equipe.png" alt="Equipe" class="produto">
+                <button id="btn-time">Confira</button>
+            </div>
+
+            <div class="cardd cardd2" data-tilt>
+                <h2>NOSSA INSPIRAÇÃO</h2>
+                <img src="imagens/inspiracao.png" alt="Inspiração" class="produto">
+                <button id="inspiracao-btn">Confira</button>
+            </div>
+
+            <div class="cardd cardd3" data-tilt>
+                <h2>O QUE OFERECEMOS?</h2>
+                <img src="imagens/oferecemos.png" alt="O que oferecemos" class="produto">
+                <button id="oferecemos-btn">Confira</button>
+            </div>
+
+
+        </div>
+
+    </section>
+    <section id="time" class="team-section">
+
+        <h2 class="h2_team">Nossa Equipe</h2>
+        <div class="team-cards">
+            <div class="card">
+                <img src="imagens/dormingues.png" alt="Membro 1">
+                <div class="info">
+                    <p> <a href="#tm"> </a>Meu nome é Guilherme Domingues e estou iniciando meus estudos na área de
+                        programação, focando tanto em front-end quanto em back-end. Tenho desenvolvido pequenos projetos
+                        de forma autônoma e busco constantemente evoluir minhas habilidades. Estou sempre em busca de
+                        aprender novas linguagens para aprimorar meu conhecimento e me desenvolver na área de
+                        programação.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="imagens/felipe.png" alt="Membro 2">
+                <div class="info">
+                    <p>Olá! Sou Felipe Oliveira, tenho 15 anos e sou um programador iniciante apaixonado por tecnologia.
+                        Comecei a aprender programação com HTML, CSS e JavaScript e adoro criar pequenos projetos, como
+                        jogos e sites. Estou sempre em busca de novos desafios e sonho em trabalhar em uma grande
+                        empresa de tecnologia no futuro!</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="imagens/gusta.png" alt="Membro 3">
+                <div class="info">
+                    <p>Meu nome é gustavo barros e estou cursando o primeuro ano do ensino medio tecnico na fiap school
+                        busco aprimorar minhas abilidades como programador e desenvolvedor front end
+                        pretendo em breve entrar no mercado de trabalho</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="imagens/brito.png" alt="Membro 4">
+            
+                <div class="info">
+                    <p>Meu nome é Pedro, Sou um desenvolvedor Front-end/Back-end iniciante, estudo na FIAP SCHOOL
+                        no 1 ano do ensino medio, busco a todo momento evoluir meu aprendizado e progredir cada vez mais
+                        em minha carreira como programador. </p>
+                    
+                </div>
+            </div>
+        </div>
+        <a class="btn_contato_time" href="telalinks.html">CONTATO</a>
+    </section>
+
+    <section id="Inspiracao" class="Inspiracao">
+        <div class="banner_itens">
+            <div class="interface">
+                <div class="flex">
+
+                    
+
+                    <div class="txt-Inspiracao">
+                        <h1>NOSSA</h1><span>INSPIRAÇÃO</span></h1>
+                        <p>Nosso objetivo é simples: ajudar as pessoas a se sentirem mais confiantes com o dinheiro. Acreditamos que, com um pouco de conhecimento financeiro, todo mundo pode tomar decisões mais tranquilas e planejar um futuro sem preocupações. Queremos te inspirar a dar o primeiro passo rumo à liberdade financeira, sem mistério e de um jeito fácil de entender. Estamos aqui para compartilhar dicas e ideias que realmente fazem a diferença no dia a dia!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="oferecemos" class="Oferecemos">
+        <div class="banner_itens">
+            <div class="interface">
+                <div class="flex">
+
+
+                    <div class="txt-Oferecemos">
+                        <h1>O QUE <span>OFERECEMOS?</span></h1>
+                        <p>Nosso site de educação financeira capacita jovens com o conhecimento e as habilidades
+                            necessárias para gerenciar suas finanças de maneira eficaz. Com uma abordagem interativa e
+                            envolvente, oferecemos uma variedade de conteúdos acessíveis e relevantes. Nossos cursos
+                            abordam tópicos essenciais como orçamento, economia e investimentos. Além disso,
+                            disponibilizamos jogos educativos e webinars com especialistas em finanças. Criamos uma
+                            comunidade de aprendizado para troca de experiências e dúvidas. Ferramentas práticas, como
+                            calculadoras financeiras, ajudam os jovens a aplicar o que aprendem. Nosso objetivo é
+                            empoderar a nova geração para decisões financeiras informadas. Junte-se a nós e conquiste
+                            sua independência financeira!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="rodape">
+    <ul class="rodape__lista">
+        <h3 class="rodape__titulo">Nossos cursos</h3>
+        <li><a href="sobrecursos.html">Videos Extras</a></li>
+        <li><a href="antesfiltro.html">Apostilas</a></li>
+        <li><a href="antesfiltro.html">Links Uteis</a></li>
+        <li><a href="antesfiltro.html">Financias</a></li>
+        <li><a href="antesfiltro.html">Orçamento Familiar</a></li>
+        <li><a href="antesfiltro.html">Investimentos</a></li>
+        <li><a href="antesfiltro.html">Gastos</a></li>
+      
+    </ul>
+    <ul class="rodape__lista">
+        <h3 class="rodape__titulo">CONTATO</h3>
+        <li><a href="telalinks_pedro.html">Pedro</a></li>
+        <li><a href="telalinks_guilherme.html">Guilherme</a></li>
+        <li><a href="telalinks_felipe.html">Felipe</a></li>
+        <li><a href="telalinks_gustavo.html">Gustavo</a></li>
+    </ul>
+    <ul class="rodape__lista">
+        <h3 class="rodape__titulo">ONDE IR</h3>
+        <li class="txtrodape"><a href="home.html" id="home">Home</a></li>
+        <li class="txtrodape"><a href="sobrecursos.html" id="cursos">cursos</a></li>
+        <li class="txtrodape"><a href="MENU GAMES.html" id="Inspiração">Games</a></li>
+        <li class="txtrodape"><a href="antesfiltro.html" id="time">Filtros</a></li>
+        <li class="txtrodape"><a href="contato.html" id="time">Contato</a></li>
+    </ul>
+    <DIV class="logos"><img src="imagens/LOGO_PORCOINS.png"></DIV>
+    <div class="rodape__logo">
+        <h4></h4>
+
+        <p class="fim">©2024 1EMIC PorCoins. Todos os direitos reservados. Desenvolvido por Pedro, Felipe, Guilherme, Gustavo Barros. </p>
+    </div>
+</footer>
+</body>
+</html>

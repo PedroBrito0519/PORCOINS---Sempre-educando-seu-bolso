@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
+        integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Young+Serif&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <!--fim google fonts-->
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!--fim bootstrap-->
+    <link id="theme-style" rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/menugames.css">
+    <script src="js/menu.js" defer></script>
+    <script src="css/tema.js" defer></script>
+    <script src="js/generateresposta.js" defer></script>
+    <script src="js/chat.js" defer></script>
+
+    <title>PORCOINS - Sempre Educando seu Bolso</title>
+    <link class="titulo-logo" rel="icon" href="imagens/Favicon.png">
+    <div class="glow-effect"></div>
+</head>
+
+<body onload="hideLoadingScreen()">
+   
+    <!-- Tela de carregamento -->
+    <div id="loading-screen">
+        <div class="loading-container">
+            <img src="imagens/moeda-brilhando-gigante.gif" alt="Moeda girando" class="loading-coin">
+            <p class="loading-text">Carregando...</p>
+        </div>
+    </div>
+    <header id="header">
+        <div class="container">
+            <div class="flex">
+                <div class="logo">
+                    <a href="home.html">
+                        <img class="logo" src="imagens/LOGO_PORCOINS.png" alt="">
+                    </a>
+                </div><!--logo-->
+                
+                <nav>
+                    <ul class="menu-principal">
+                        <li class="menu-item">
+                            <a href="home.html">HOME</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="home.html#missao">Nossa missão</a></li>
+                                <li><a href="home.html#sobre">Sobre o time</a></li>
+                                <li><a href="home.html#Contato">Contato</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="sobrecursos.html">CURSOS</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="sobrecursos.html#sobrecurso">Sobre</a></li>
+                                <li><a href="sobrecursos.html#ajudamos">Em que ajudamos</a></li>
+                                <li><a href="sobrecursos.html#extra">Cursos extras</a></li>
+                                <li><a href="sobrecursos.html#filtro">Filtrador</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="MENU GAMES.html">GAMES</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="inicio.html">Porcoins Game</a></li>
+                                <li><a href="color.html">Coloron</a></li>
+                                <li><a href="buble.html">Bubbles</a></li>
+                                <li><a href="forca.html">Forca Financeira</a></li>
+                                <li><a href="jogo da memoria.html">Jogo da Memoria</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+    
+                <div class="btn-contato">
+                    <a class="btn-contato" href="contato.html"><button>CONTATO</button></a>
+                </div>
+
+
+           <!-- Botão de alternância de tema -->
+<div class="theme-toggle-btn">
+    <button onclick="toggleTheme()" data-tooltip="Tema Escuro">
+        🌞
+    </button>
+</div>
+                <!-- Botão para abrir o menu lateral -->
+                <div class="menu-lateral-btn">
+                    <button onclick="toggleMenu()">☰</button>
+                </div>
+                
+            </div><!--flex-->
+        </div><!--container-->
+    </header>
+    
+    <!-- Menu lateral -->
+    <div id="menu-lateral" class="menu-lateral">
+        <button class="close-btn" onclick="toggleMenu()">×</button>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="sobrecursos.html">CURSOS</a></li>
+            <li><a href="MENU GAMES.html">GAMES</a></li>
+            <li><a href="contato.html">CONTATO</a></li>
+            <li><a href="antesfiltro.html">FILTRADOR</a></li>
+        </ul>
+    </div>
+ 
+   <!-- Botão Flutuante do Chat -->
+   <div id="chat-button" class="chat-bubble">
+    💬
+</div>
+
+<!-- Container do Chat -->
+<div class="chat-container" id="chat-container">
+    <!-- Cabeçalho do Chat -->
+    <div class="chat-header">
+        <img  src="imagens/Favicon.png" alt="Logo" class="logo">
+        <div class="name">ChatCoin<i class="bi bi-coin"></i></div>
+        <button id="restart-button" class="reset-btn" onclick="resetChat()"><i class="bi bi-arrow-counterclockwise"></i></button>
+        <button id="close-chat-button" class="reset-btn" onclick="closeChat()" style="display:none;"><i class="bi bi-x-lg"></i></button> <!-- Novo botão de fechar -->
+    </div>
+
+    <!-- Caixa de Mensagens -->
+    <div class="chat-box">
+        <div id="messages" class="messages"></div>
+    </div>
+
+    <!-- Campo de Entrada e Botão Enviar -->
+    <input id="user-input" type="text" placeholder="Digite sua mensagem...">
+    <button id="send-btn" onclick="sendMessage()">Enviar</button> 
+</div>
+
+<!-- Fim do chatbot -->
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 mt-2">
+          <br>
+          <br>
+          <br>
+          <h3 class="display-3">Biblioteca de jogos</h3>
+          <div class="row">
+            <div class="flex-game">
+              <div class="card-promo-game">
+                <div class="card-promo-game-img">
+                  <img draggable="false" src="imagens/forca.png" alt="">
+                </div>
+                <div class="card-promo-game-body">
+                  <div class="card-promo-game-body-title">
+                    FORCA
+                    <div class="flex-func">
+                      <div data-ripplet class="iniciar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <box-icon name='play' color='#ffffff'></box-icon> <a class="iniciar_jogo" href="forca.html">iniciar</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ico-dots">
+                    <box-icon name='dots-horizontal-rounded' color='#f7f7f7'></box-icon>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="card-promo-game">
+                <div class="card-promo-game-img">
+                  <img draggable="false" src="imagens/memoria.png" alt="">
+                </div>
+                <div class="card-promo-game-body">
+                  <div class="card-promo-game-body-title">
+                    JOGO DA MEMORIA
+                    <div class="flex-func">
+                      <div class="iniciar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <box-icon name='play' color='#CF4A4A'></box-icon> <a class="iniciar_jogo" href="jogo da memoria.html">iniciar</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ico-dots">
+                    <box-icon name='dots-horizontal-rounded' color='#5500FF'></box-icon>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="card-promo-game">
+                <div class="card-promo-game-img">
+                  <img draggable="false" src="imagens/coins.png" alt="">
+                </div>
+                <div class="card-promo-game-body">
+                  <div class="card-promo-game-body-title">
+                    COINS
+                    <div class="flex-func">
+                      <div class="iniciar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <box-icon name='play' color='#ffffff'></box-icon> <a class="iniciar_jogo" href="buble.html">iniciar</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ico-dots">
+                    <box-icon name='dots-horizontal-rounded' color='#f7f7f7'></box-icon>
+                  </div>
+                </div>
+              </div>
+  
+  
+              <div class="card-promo-game">
+                <div class="card-promo-game-img">
+                  <img draggable="false" src="imagens/joao.png" alt="">
+                </div>
+                <div class="card-promo-game-body">
+                  <div class="card-promo-game-body-title">
+                    PORCOINS GAME
+                    <div class="flex-func">
+                      <div class="iniciar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <box-icon name='play' color='#ffffff'></box-icon> <a class="iniciar_jogo" href="inicio.html">iniciar</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ico-dots">
+                    <box-icon name='dots-horizontal-rounded' color='#f7f7f7'></box-icon>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="card-promo-game">
+                <div class="card-promo-game-img">
+                  <img draggable="false" src="imagens/coloron.png" alt="">
+                </div>
+                <div class="card-promo-game-body">
+                  <div class="card-promo-game-body-title">
+                    COLOR BALL
+                    <div class="flex-func">
+                      <div class="iniciar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <box-icon name='play' color='#ffffff'></box-icon> <a class="iniciar_jogo" href="color.html">iniciar</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ico-dots">
+                    <box-icon name='dots-horizontal-rounded' color='#f7f7f7'></box-icon>
+                  </div>
+                </div>
+              </div>
+  
+        
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br><br><br><br>
+    <footer class="rodape">
+        <ul class="rodape__lista">
+            <h3 class="rodape__titulo">Nossos cursos</h3>
+            <li><a href="sobrecursos.html">Videos Extras</a></li>
+            <li><a href="antesfiltro.html">Apostilas</a></li>
+            <li><a href="antesfiltro.html">Links Uteis</a></li>
+            <li><a href="antesfiltro.html">Finanças</a></li>
+            <li><a href="antesfiltro.html">Orçamento Familiar</a></li>
+            <li><a href="antesfiltro.html">Investimentos</a></li>
+            <li><a href="antesfiltro.html">Gastos</a></li>
+        </ul>
+
+        <ul class="rodape__lista">
+            <h3 class="rodape__titulo">CONTATO</h3>
+            <li><a href="telalinks_pedro.html">Pedro</a></li>
+            <li><a href="telalinks_guilherme.html">Guilherme</a></li>
+            <li><a href="telalinks_felipe.html">Felipe</a></li>
+            <li><a href="telalinks_gustavo.html">Gustavo</a></li>
+        </ul>
+
+        <ul class="rodape__lista">
+            <h3 class="rodape__titulo">ONDE IR</h3>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="sobrecursos.html">Cursos</a></li>
+            <li><a href="MENU GAMES.html">Games</a></li>
+            <li><a href="antesfiltro.html">Filtros</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+
+        <div class="logos">
+            <img src="imagens/LOGO_PORCOINS.png" alt="Logo">
+        </div>
+
+        <div class="rodape__logo">
+            <p class="fim">©2024 1EMIC PorCoins. Todos os direitos reservados. Desenvolvido por Pedro, Felipe, Guilherme, Gustavo Barros.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Manipulação do PDF Modal
+        const buttons = document.querySelectorAll('.video-btn');
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                const pdfUrl = this.getAttribute('data-pdf');
+                openModal(pdfUrl);
+            });
+        });
+
+        function openModal(pdfUrl) {
+            const modal = document.getElementById('pdfModal');
+            const pdfViewer = document.getElementById('pdfViewer');
+            const downloadLink = document.getElementById('downloadLink');
+            pdfViewer.src = pdfUrl;
+            downloadLink.href = pdfUrl;
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('pdfModal');
+            modal.style.display = 'none';
+        }
+
+        function sharePDF() {
+            const url = document.getElementById('pdfViewer').src;
+            alert('Compartilhe o link: ' + url);
+        }
+    </script>
+
+</body>
+</html>

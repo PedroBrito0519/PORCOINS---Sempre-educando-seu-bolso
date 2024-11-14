@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porcoins Game - A Jornada de João</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="res/css/antesgame1.css">
+    <link rel="icon" href="res/assets/Favicon.png">
+</head>
+<body>
+    <style>body {
+        margin: 0; 
+        height: 100vh; 
+        width: 100%; 
+        overflow: hidden;
+        font-family: 'Press Start 2P', cursive;
+    }
+    
+    .container_modal {
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat; 
+        height: 100%; 
+        width: 100%; /* Preenche toda a largura do body */
+        display: flex;
+        justify-content: center;
+        align-items: flex-end; /* Alinha os itens na parte inferior */
+        padding-bottom: 20px; /* Espaço abaixo do conteúdo */
+        z-index: 1;
+    }
+    
+    
+    .dialogue {
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        margin-top: 300px; 
+       margin-bottom: 30px;
+       filter: brightness(100%);
+       z-index: 2;
+    }
+    .dialogue-text {
+        background-color: white; 
+        border-radius: 10px; 
+        padding: 10px; /* Menos espaço interno */
+        width: 1200px; 
+        height: 50px; /* Altura ajustada */
+        border: 2px solid #4e54c8; /* Adiciona a borda */
+        overflow: hidden; /* Remove rolagem */
+        z-index: 2;
+    
+    }
+    
+    .dialogue-input {
+        background-color: white; 
+        border: none; 
+        width: 95%; 
+        height: 40px; /* Altura ajustada do input */
+        text-align: center; 
+        font-size: 24px; 
+        font-family: 'PixelatedFont', cursive; /* Troque pelo nome da fonte pixelada */
+        color: black; /* Cor do texto preta */
+        
+       
+    }
+    
+    .btn_dialogo {
+      top: 0;
+        color:#4e54c8; /* Cor do texto do botão */
+        border: none;
+        background-color: white;
+        font-size: 18px; /* Tamanho do texto */
+        cursor: pointer;
+        font-family: 'PixelatedFont', cursive; /* Troque pelo nome da fonte pixelada */
+    }
+    
+    .dialogue-input2 {
+        background-color: white; 
+        border: none; /* Remove a borda */
+        border-radius: 10px;
+        width: 100%; /* Largura completa da caixa */
+        font-size: 34px; 
+        font-family: 'Press Start 2P', cursive;
+        font-size: 18px;
+    }
+    
+    
+    
+    </style>
+    <div class="container_modal">
+        <div class="dialogue">
+            <div class="dialogue-text">
+                <input type="text" id="dialogueInput" class="dialogue-input2" value="João tem um sonho: comprar um novo videogame." readonly>
+                <button class="btn_dialogo" id="nextButton" onclick="nextDialogue()">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    let dialogueIndex = 0;
+        const dialogues = [
+            { text: "João tem um sonho: comprar um novo videogame.", background: "res/assets/casa.jpg" },
+            { text: "Mas ele não sabe como economizar para isso.", background: "res/assets/casa.jpg" },
+            { text: "Ele vai até seu pai para pedir conselhos.", background: "res/assets/casa.jpg" },
+            { text: "João: Pai, eu realmente quero comprar um novo videogame.", background: "res/assets/casa.jpg" },
+            { text: "Pai: Isso é ótimo, João! Mas você já pensou em como vai pagar por ele?", background: "res/assets/casa.jpg" },
+            { text: "João: Eu tenho alguma mesada, mas não sei se é suficiente.", background: "res/assets/casa.jpg" },
+            { text: "Pai: Vamos fazer um plano. Você pode economizar um pouco a cada semana.", background: "res/assets/casa.jpg" },
+            { text: "João: Isso parece uma boa ideia! Assim, vou aprender a administrar meu dinheiro.", background: "res/assets/casa.jpg" },
+            { text: "Pai: Exato! E lembre-se de não gastar tudo de uma vez.", background: "res/assets/casa.jpg" },
+            { text: "João: Vou me esforçar para comprar meu videogame!", background: "res/assets/casa.jpg" },
+        ];
+        
+        function nextDialogue() {
+            if (dialogueIndex < dialogues.length) {
+                const currentDialogue = dialogues[dialogueIndex];
+        
+                // Atualiza o texto
+                document.getElementById("dialogueInput").value = currentDialogue.text;
+        
+                // Atualiza o fundo da container_modal
+                document.querySelector('.container_modal').style.backgroundImage = `url(${currentDialogue.background})`;
+        
+                dialogueIndex++;
+            } else {
+                window.location.href = 'game2.html'; // Redireciona para a próxima página
+            }
+        }
+        </script>
+</body>
+</html>

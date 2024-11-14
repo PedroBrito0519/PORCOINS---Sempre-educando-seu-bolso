@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="target-densitydpi=160dpi, initial-scale=0, width=device-width, minimum-scale=1, maximum-scale=1" name="viewport">
+    <link class="titulo-logo" rel="icon" href="imagens/Favicon.png">
+    <style>
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css");
+        @import url("https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap");
+
+        * {
+            padding: 0;
+            margin: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body {
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            text-align: center;
+            font-family: "Muli", sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #7716d1, #5723e7, #31108d);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        a {
+            color: #fff;
+            list-style-type: none;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        .game-section {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .fa {
+            color: white;
+        }
+
+        .memory-game {
+            padding-left: 60px;
+            position: relative;
+            display: flex;
+            width: 650px;
+            max-width: 100% !important;
+            height: 100vh;
+            margin: 60px;
+            flex-wrap: wrap;
+            perspective: 1000px;
+        }
+
+        .memory-card {
+            width: calc(25% - 10px);
+            height: calc(33.333% - 10px);
+            margin: 5px;
+            position: relative;
+            box-shadow: 2px 2px 4px 2px rgb(0 0 0 / 30%);
+            transform: scale(1);
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+        
+        .front-face,
+        .back-face {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            border: #333 8px;
+            background: #341f44;
+            backface-visibility: hidden;
+            list-style: none;
+        }
+        
+        .memory-card:active {
+            transform: scale(0.97);
+            transition: transform 0.2s;
+        }
+        
+        .memory-card.flip {
+            transform: rotateY(180deg);
+        }
+        
+        .front-face {
+            transform: rotateY(180deg);
+        }
+        button{
+            border: 1px solid white;
+            border-radius: 15px;
+            color: white;
+            width: 200px;
+            height: 50px;
+            margin-top: 30px;
+            background-color: #5723e7;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <section class="container-fluid section-padding-100-0 section-padding-0-100">
+        <div class="game-section spad wow fadeInUp">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="container-fluid text-center">
+                          <br>
+                          <br>
+                            <i class="fa-2x fa fa-graduation-cap"></i>
+                         
+                            <h2>Exercício de memória</h2>
+                            <p>Está preparado(a)? Esse jogo é bem fácil, você vai exercitar a sua memória<br> e aprender sobre educação financeira.</p>
+                            <button><a href="MENU GAMES.html">VOLTAR AO MENU</a></button>
+                        </div>
+                    </div>
+             
+                    <div class="col-8">
+                        <section class="memory-game">
+                            <div class="memory-card" data-framework="cofre">
+                                <img class="front-face" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxhD0NQtYpAeP568i54FyG4bMqWijn0_7yXg&s" alt="Cofrinho" />
+                                <img class="back-face" src="https://img.freepik.com/vetores-gratis/ilustracao-de-cifrao-de-desenho-animado-desenhado-a-mao_23-2150927138.jpg?ga=GA1.1.1391048775.1730475505&semt=ais_siglip" alt="Play" />
+                            </div>
+
+                            <div class="memory-card" data-framework="cofre">
+                                <img class="front-face" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxhD0NQtYpAeP568i54FyG4bMqWijn0_7yXg&s" alt="Cofrinho" />
+                                <img class="back-face" src="https://img.freepik.com/vetores-gratis/ilustracao-de-cifrao-de-desenho-animado-desenhado-a-mao_23-2150927138.jpg?ga=GA1.1.1391048775.1730475505&semt=ais_siglip" alt="Play" />
+                            </div>
+
+                            <div class="memory-card" data-framework="bitcoin">
+                                <img class="front-face" src="https://img.freepik.com/vetores-premium/pagamento-da-conta-de-sucesso_101884-795.jpg" alt="Bitcoin" />
+                                <img class="back-face" src="https://img.freepik.com/vetores-gratis/ilustracao-de-cifrao-de-desenho-animado-desenhado-a-mao_23-2150927138.jpg?ga=GA1.1.1391048775.1730475505&semt=ais_siglip" alt="Play" />
+                            </div>
+                            <div class="memory-card" data-framework="bitcoin">
+                                <img class="front-face" src="https://img.freepik.com/vetores-premium/pagamento-da-conta-de-sucesso_101884-795.jpg" alt="Bitcoin" />
+                                <img class="back-face" src="https://img.freepik.com/vetores-gratis/ilustracao-de-cifrao-de-desenho-animado-desenhado-a-mao_23-2150927138.jpg?ga=GA1.1.1391048775.1730475505&semt=ais_siglip" alt="Play" />
+                            </div>
+
+                            <div class="memory-card" data-framework="porcentagem">
+                                <img class="front-face" src="https://static.vecteezy.com/ti/vetor-gratis/p1/6405253-investimento-estatistica-crescimento-com-dinheiro-icone-ilustracao-financa-objeto-icone-conceito-isolado-plano-estilo-de-desenho-animado-vetor.jpg" alt="Porcentagem" />
+                                <img class="back-face" src="https://img.freepik.com/vetores-gratis/ilustracao-de-cifrao-de-desenho-animado-desenhado-a-mao_23-2150927138.jpg?ga=GA1.1.1391048775.1730475505&semt=ais_siglip" alt="Play" />
+                            </div>
+                            <div class="memory-card" data-framework="porcentagem">
+                                <img class="front-face" src="https://static.vecteezy.com/ti/vetor-gratis/p1/6405253-investimento-estatistica-crescimento-com-dinheiro-icone-ilustracao-financa-objeto-icone-conceito-isolado-plano-estilo-de-desenho-animado-vetor.jpg" alt="Porcentagem" />
+                                <img class="back-face" src="https://img.freepik.com/vetores-gratis/ilustracao-de-cifrao-de-desenho-animado-desenhado-a-mao_23-2150927138.jpg?ga=GA1.1.1391048775.1730475505&semt=ais_siglip" alt="Play" />
+                            </div>
+
+                            <div class="memory-card" data-framework="boleto">
+                                <img class="front-face" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIzuacujCCzbmC3-AFvfp57GXtfJ4y52Iy3Q&s" alt="Boleto" />
+                                <img class="back-face" src="https://img.freepik.com/vetores-gratis/ilustracao-de-cifrao-de-desenho-animado-desenhado-a-mao_23-2150927138.jpg?ga=GA1.1.1391048775.1730475505&semt=ais_siglip" alt="Play" />
+                            </div>
+                            <div class="memory-card" data-framework="boleto">
+                                <img class="front-face" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIzuacujCCzbmC3-AFvfp57GXtfJ4y52Iy3Q&s" alt="Boleto" />
+                                <img class="back-face" src="https://img.freepik.com/vetores-gratis/ilustracao-de-cifrao-de-desenho-animado-desenhado-a-mao_23-2150927138.jpg?ga=GA1.1.1391048775.1730475505&semt=ais_siglip" alt="Play" />
+                            </div>
+
+                            <div class="memory-card" data-framework="elefante">
+                                <img class="front-face" src="https://img.freepik.com/vetores-gratis/cofrinho_53876-25494.jpg?t=st=1730475834~exp=1730479434~hmac=6b427192f330a8cb2176c70e235e263f3fd46c3a0e39731729511560790b3b8d&w=740" alt="Elefante" />
+                                <img class="back-face" src="https://img.freepik.com/vetores-gratis/ilustracao-de-cifrao-de-desenho-animado-desenhado-a-mao_23-2150927138.jpg?ga=GA1.1.1391048775.1730475505&semt=ais_siglip" alt="Play" />
+                            </div>
+                            <div class="memory-card" data-framework="elefante">
+                                <img class="front-face" src="https://img.freepik.com/vetores-gratis/cofrinho_53876-25494.jpg?t=st=1730475834~exp=1730479434~hmac=6b427192f330a8cb2176c70e235e263f3fd46c3a0e39731729511560790b3b8d&w=740" alt="Elefante" />
+                                <img class="back-face" src="https://img.freepik.com/vetores-gratis/ilustracao-de-cifrao-de-desenho-animado-desenhado-a-mao_23-2150927138.jpg?ga=GA1.1.1391048775.1730475505&semt=ais_siglip" alt="Play" />
+                            </div>
+
+                            <div class="memory-card" data-framework="educacao-financeira">
+                                <img class="front-face" src="https://img.freepik.com/vetores-gratis/fundo-de-moeda-dourada-com-bitcoin-criptomoeda_1017-31505.jpg?ga=GA1.1.1391048775.1730475505&semt=ais_hybrid" alt="Educação Financeira" />
+                                <img class="back-face" src="https://img.freepik.com/vetores-gratis/ilustracao-de-cifrao-de-desenho-animado-desenhado-a-mao_23-2150927138.jpg?ga=GA1.1.1391048775.1730475505&semt=ais_siglip" alt="Play" />
+                            </div>
+                            <div class="memory-card" data-framework="educacao-financeira">
+                                <img class="front-face" src="https://img.freepik.com/vetores-gratis/fundo-de-moeda-dourada-com-bitcoin-criptomoeda_1017-31505.jpg?ga=GA1.1.1391048775.1730475505&semt=ais_hybrid" alt="Educação Financeira" />
+                                <img class="back-face" src="https://img.freepik.com/vetores-gratis/ilustracao-de-cifrao-de-desenho-animado-desenhado-a-mao_23-2150927138.jpg?ga=GA1.1.1391048775.1730475505&semt=ais_siglip" alt="Play" />
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const cards = document.querySelectorAll(".memory-card");
+
+        let hasFlippedCard = false;
+        let lockBoard = false;
+        let firstCard, secondCard;
+
+        function flipCard() {
+            if (lockBoard) return;
+            if (this === firstCard) return;
+
+            this.classList.add("flip");
+
+            if (!hasFlippedCard) {
+                hasFlippedCard = true;
+                firstCard = this;
+                return;
+            }
+
+            secondCard = this;
+            checkForMatch();
+        }
+
+        function checkForMatch() {
+            let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+            isMatch ? disableCards() : unflipCards();
+        }
+
+        function disableCards() {
+            firstCard.removeEventListener("click", flipCard);
+            secondCard.removeEventListener("click", flipCard);
+            resetBoard();
+        }
+
+        function unflipCards() {
+            lockBoard = true;
+            setTimeout(() => {
+                firstCard.classList.remove("flip");
+                secondCard.classList.remove("flip");
+                resetBoard();
+            }, 1500);
+        }
+
+        function resetBoard() {
+            [hasFlippedCard, lockBoard] = [false, false];
+            [firstCard, secondCard] = [null, null];
+        }
+
+        (function shuffle() {
+            cards.forEach((card) => {
+                let randomPos = Math.floor(Math.random() * 12);
+                card.style.order = randomPos;
+            });
+        })();
+
+        cards.forEach((card) => card.addEventListener("click", flipCard));
+    </script>
+</body>
+</html>
